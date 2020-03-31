@@ -4,7 +4,6 @@ import Link from 'next/link';
 const ListItem = ({ project }) => (
     <div className="flex rounded-md bg-white shadow mb-6 overflow-hidden hover:shadow-md">
         <div className="flex w-4/12 relative">
-            {console.log('Esto vale project:', project)}
             <Link href="/proyecto">
                 <a className="flex">
                     <img className="object-cover " src="images/dry-clean.png" />
