@@ -1,8 +1,9 @@
 import React from 'react';
 import HeroButton from "./HeroButton";
 
-const ArticleSummary = () => {
+const IndexHero = ({ categories }) => {
     const greeting = 'Hello Function Component!';
+    console.log('Esto vale shows: ', categories)
     return (
         <div className="py-16 container mx-auto flex flex-row">
             <div className="flex flex-col justify-center w-1/2">
@@ -17,9 +18,11 @@ const ArticleSummary = () => {
             <div className="p-3 flex w-1/2 flex-col justify-center">
                 <div className="flex flex-col">
                     <div className="flex flex-row items-stretch">
-                        <HeroButton name="Restaurantes" />
-                        <HeroButton name="Tiendas" />
-                        <HeroButton name="Servicios" />
+                        {
+                            categories.map(category => (
+                                <HeroButton name={category.nombre} key={category.id} />
+                            ))
+                        }
                     </div>
                     <div className="flex flex-row">
                         <HeroButton name="Hola" />
@@ -32,4 +35,6 @@ const ArticleSummary = () => {
     );
 };
 
-export default ArticleSummary;
+
+
+export default IndexHero;

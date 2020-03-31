@@ -10,11 +10,8 @@ const Footer = ({ name }) => (
             <div className="flex flex-1">
                 2
             </div>
-            <div className="flex flex-1">
+            <div className="flex flex-2">
                 3
-            </div>
-            <div className="flex flex-1">
-                4
             </div>
         </div>
     </div>
