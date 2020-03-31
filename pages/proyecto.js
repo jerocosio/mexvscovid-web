@@ -8,10 +8,10 @@ import Footer from '../components/Footer'
 
 const Tabletop = require('tabletop');
 
-const Directorio = props => (
+const Proyecto = props => (
     <Layout>
         <Head>
-            <title>MEX VS COVID-19 - Directorio</title>
+            <title>MEX VS COVID-19 - Conoce más del proyecto</title>
             <link rel="icon" href="/favicon.ico" />
         </Head>
         <main className="bg-gray-100 mb-10">
@@ -19,8 +19,7 @@ const Directorio = props => (
                 <div>
                     <h2 className="text-4xl text-gray-900 leading-normal p-12 text-center">Directorio de proyectos</h2>
                 </div>
-                <TopSort />
-                <DirectoryList projects={props.projects} />
+
             </div>
         </main>
 
@@ -31,7 +30,7 @@ const Directorio = props => (
     </Layout>
 )
 
-Directorio.getInitialProps = async function () {
+Proyecto.getInitialProps = async function () {
     const spreadSheetUrl = "https://docs.google.com/spreadsheets/d/17YlUOZWLBbPeTm4CKfTf6gpGe9-yW_RbRh5TEUlG_dM/edit#gid=0";
     function getData() {
         return new Promise(resolve => {
@@ -49,4 +48,4 @@ Directorio.getInitialProps = async function () {
     };
 };
 
-export default Directorio
+export default Proyecto

@@ -17,17 +17,12 @@ const IndexHero = ({ categories }) => {
             </div>
             <div className="p-3 flex w-1/2 flex-col justify-center">
                 <div className="flex flex-col">
-                    <div className="flex flex-row items-stretch">
+                    <div className="flex flex-row items-stretch flex-wrap">
                         {
                             categories.map(category => (
                                 <HeroButton name={category.nombre} key={category.id} />
                             ))
                         }
-                    </div>
-                    <div className="flex flex-row">
-                        <HeroButton name="Hola" />
-                        <HeroButton name="Hola" />
-                        <HeroButton name="Hola" />
                     </div>
                 </div>
             </div>
