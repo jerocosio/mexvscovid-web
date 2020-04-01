@@ -17,8 +17,8 @@ const ProjectResume = ({ name }) => (
         </div>
         <div className="flex p-4 border-t border-gray-300 flex-row justify-between">
             <div className="flex">
-                <button className="bg-blue-500 hover:bg-blue-400 text-white font-bold py-2 px-4 border-b-4 border-blue-700 hover:border-blue-500 rounded">
-                    Button
+                <button className="transition duration-500 ease-in-out  border border-green-500 hover:bg-green-500 hover:text-white text-green-500 font-bold py-2 px-4 rounded">
+                    Ver más
                 </button>
             </div>
             <div className="flex">

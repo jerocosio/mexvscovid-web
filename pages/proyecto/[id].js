@@ -24,8 +24,9 @@ const Proyecto = props => {
             </Head>
             <main className="bg-gray-100 mb-10">
                 <div className="container mx-auto ">
-                    <div>
-                        <h2 className="text-4xl text-gray-900 leading-normal p-12">{project.nombre}</h2>
+                    <div className="p-12">
+                        <h2 className="text-4xl text-gray-900 leading-normal ">{project.nombre}</h2>
+                        <p className="text-gray-800"><span className="font-medium text-gray-800">📍 </span> {project.direccion}</p>
                     </div>
 
                 </div>

@@ -1,10 +1,14 @@
 import Link from 'next/link';
-
+import Pill from '../components/Pill'
 
 const ListItem = ({ project }) => {
     const projectUrl = "/proyecto/" + project.id;
+    let ig_url = null;
+    if (project.ig_link) {
+        ig_url = 'https://www.instagram.com/' + project.ig_link.replace("@", "")
+    }
     return (
-        <div className="flex rounded-md bg-white shadow mb-6 overflow-hidden hover:shadow-md">
+        <div className="flex rounded-md bg-white shadow-md mb-6 overflow-hidden hover:shadow-lg">
             <div className="flex w-4/12 relative">
                 <Link href={projectUrl}>
                     <a className="flex">
@@ -12,7 +16,7 @@ const ListItem = ({ project }) => {
                     </a>
                 </Link>
                 <div className="absolute">
-                    <span className="absolute rounded-full m-2 bg-indigo-500 text-white uppercase px-2 py-1 text-xs font-bold mr-3">{project.subcategoria}</span>
+                    <Pill category={project.categoria} subcategory={project.subcategoria} />
                 </div>
             </div>
             <div className="flex flex-col justify-between w-full">
@@ -20,28 +24,37 @@ const ListItem = ({ project }) => {
                     <Link href={projectUrl}>
                         <a><h4 className="text-2xl text-gray-700 font-bold mb-2 hover:underline">{project.nombre}</h4></a>
                     </Link>
-                    <p className="text-gray-800"><span className="font-medium text-gray-800">📍 </span> {project.direccion}</p>
-                    <p className="text-gray-800"><span className="font-medium text-gray-800">☎️ </span> {project.telefono}</p>
-                    <p className="text-gray-800"><span className="font-medium text-gray-800">Envíos: </span> ✅</p>
-                    <p className="text-gray-800"><span className="font-medium text-gray-800">Zonas de envío: </span> {project.zonas_servicio_a_domicilio}</p>
-                    <p className="text-gray-800">{project.descripcion}</p>
+                    {project.direccion ? <p className="text-gray-800 py-1"><span className="font-medium text-gray-800">📍 </span>{project.direccion}</p> : null}
+
+                    {project.telefono ? <p><a href={`tel:${project.telefono}`} className="text-gray-800 hover:underline py-1"><span className="font-medium text-gray-800">☎️ (Tel): </span>{project.telefono}</a></p> : null}
+                    {project.whatsapp ? <p><a href={`https://wa.me/${project.whatsapp.replace(" ", "").replace("+", "")}`} className="text-gray-800 hover:underline py-1"><span className="font-medium text-gray-800">☎️ (WhatsApp): </span>{project.whatsapp}</a></p> : null}
+
+                    <p className="text-gray-800 py-1"><span className="font-medium text-gray-800">Servicio a domicilio: </span> {project.servicio_a_domicilio === 'SI' ? ' ✅' : ' ⛔'}</p>
+                    <p className="text-gray-800 py-1"><span className="font-medium text-gray-800">Zonas de envío: </span> {project.zonas_servicio_a_domicilio}</p>
+                    <p className="text-gray-800 py-1"><span className="font-medium text-gray-800">Descripción: </span>{project.descripcion}</p>
                 </div>
                 <div className="flex p-4 border-t border-gray-300 flex-row justify-between ">
                     <div className="flex">
-                        <button className="bg-blue-500 hover:bg-blue-400 text-white font-bold py-2 px-4 border-b-4 border-blue-700 hover:border-blue-500 rounded">
-                            Más detalles
-                </button>
+                        <Link href={projectUrl}>
+                            <a className="transition duration-300 ease-in-out  border border-green-500 hover:bg-green-500 hover:text-white text-green-500 font-bold py-2 px-4 rounded">
+                                Ver Más
+                            </a>
+                        </Link>
                     </div>
                     <div className="flex ">
-                        <button className="mx-1 bg-blue-500 hover:bg-blue-400 text-white font-bold py-2 px-4 border-b-4 border-blue-700 hover:border-blue-500 rounded">
-                            <svg className="fill-current w-4 h-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M22.675 0h-21.35c-.732 0-1.325.593-1.325 1.325v21.351c0 .731.593 1.324 1.325 1.324h11.495v-9.294h-3.128v-3.622h3.128v-2.671c0-3.1 1.893-4.788 4.659-4.788 1.325 0 2.463.099 2.795.143v3.24l-1.918.001c-1.504 0-1.795.715-1.795 1.763v2.313h3.587l-.467 3.622h-3.12v9.293h6.116c.73 0 1.323-.593 1.323-1.325v-21.35c0-.732-.593-1.325-1.325-1.325z" /></svg>
-                        </button>
-                        <button className="mx-1 bg-blue-500 hover:bg-blue-400 text-white font-bold py-2 px-4 border-b-4 border-blue-700 hover:border-blue-500 rounded">
-                            IG
-                </button>
-                        <button className="mx-1 bg-blue-500 hover:bg-blue-400 text-white font-bold py-2 px-4 border-b-4 border-blue-700 hover:border-blue-500 rounded">
-                            WA
-                </button>
+                        {project.fb_link ? (
+                            <Link href={project.fb_link}>
+                                <a>
+                                    <button className="transition duration-300 ease-in-out  mx-1 bg-green-500 text-white font-bold py-2 px-3 border-b-4 border-green-700 hover:bg-blue-500 rounded hover:border-blue-700">
+                                        <svg className="fill-current w-6 h-6" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 18 18"><path d="M11.344,5.71c0-0.73,0.074-1.122,1.199-1.122h1.502V1.871h-2.404c-2.886,0-3.903,1.36-3.903,3.646v1.765h-1.8V10h1.8v8.128h3.601V10h2.403l0.32-2.718h-2.724L11.344,5.71z" /></svg>
+                                    </button> </a></Link>) : null}
+
+                        {ig_url ? (
+                            <Link href={ig_url}>
+                                <a>
+                                    <button className="transition duration-300 ease-in-out  mx-1 bg-green-500  text-white font-bold py-2 px-3 border-b-4 border-green-700 hover:bg-purple-500 rounded hover:border-purple-700">
+                                        <svg className="fill-current w-6 h-6" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 18 18"><path d="M14.52,2.469H5.482c-1.664,0-3.013,1.349-3.013,3.013v9.038c0,1.662,1.349,3.012,3.013,3.012h9.038c1.662,0,3.012-1.35,3.012-3.012V5.482C17.531,3.818,16.182,2.469,14.52,2.469 M13.012,4.729h2.26v2.259h-2.26V4.729z M10,6.988c1.664,0,3.012,1.349,3.012,3.012c0,1.664-1.348,3.013-3.012,3.013c-1.664,0-3.012-1.349-3.012-3.013C6.988,8.336,8.336,6.988,10,6.988 M16.025,14.52c0,0.831-0.676,1.506-1.506,1.506H5.482c-0.831,0-1.507-0.675-1.507-1.506V9.247h1.583C5.516,9.494,5.482,9.743,5.482,10c0,2.497,2.023,4.52,4.518,4.52c2.494,0,4.52-2.022,4.52-4.52c0-0.257-0.035-0.506-0.076-0.753h1.582V14.52z" /></svg>
+                                    </button> </a></Link>) : null}
                     </div>
                 </div>
             </div>

@@ -14,7 +14,7 @@ const Directorio = props => (
             <title>MEX VS COVID-19 - Directorio</title>
             <link rel="icon" href="/favicon.ico" />
         </Head>
-        <main className="bg-gray-100 mb-10">
+        <main className="bg-gray-100">
             <div className="container mx-auto ">
                 <div>
                     <h2 className="text-4xl text-gray-900 leading-normal p-12 text-center">Directorio de proyectos</h2>
