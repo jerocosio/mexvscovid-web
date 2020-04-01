@@ -20,6 +20,7 @@
     "tabletop": "^1.6.2"
   },
   "devDependencies": {
+    "@tailwindcss/custom-forms": "^0.2.1",
     "postcss-preset-env": "^6.7.0",
     "tailwindcss": "^1.2.0"
   }

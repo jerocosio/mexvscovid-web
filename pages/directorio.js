@@ -20,7 +20,7 @@ const Directorio = props => (
                     <h2 className="text-4xl text-gray-900 leading-normal p-12 text-center">Directorio de proyectos</h2>
                 </div>
                 <TopSort />
-                <DirectoryList projects={props.projects} />
+                <DirectoryList projects={props.projects} categories={props.categories} />
             </div>
         </main>
 
@@ -31,7 +31,7 @@ const Directorio = props => (
     </Layout>
 )
 
-Directorio.getInitialProps = async function () {
+export async function getServerSideProps() {
     const spreadSheetUrl = "https://docs.google.com/spreadsheets/d/17YlUOZWLBbPeTm4CKfTf6gpGe9-yW_RbRh5TEUlG_dM/edit#gid=0";
     function getData() {
         return new Promise(resolve => {
@@ -44,9 +44,12 @@ Directorio.getInitialProps = async function () {
     }
     const ssData = await getData();
     return {
-        projects: ssData.proyectos.elements,
-        categories: ssData.categorias.elements
+        props: {
+            projects: ssData.proyectos.elements,
+            categories: ssData.categorias.elements
+        }
     };
-};
+}
+
 
 export default Directorio

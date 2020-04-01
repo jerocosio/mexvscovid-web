@@ -35,7 +35,7 @@ const Home = props => (
   </Layout>
 )
 
-Home.getInitialProps = async function () {
+export async function getServerSideProps() {
   const spreadSheetUrl = "https://docs.google.com/spreadsheets/d/17YlUOZWLBbPeTm4CKfTf6gpGe9-yW_RbRh5TEUlG_dM/edit#gid=0";
   function getData() {
     return new Promise(resolve => {
@@ -48,8 +48,11 @@ Home.getInitialProps = async function () {
   }
   const ssData = await getData();
   return {
-    categories: ssData.categorias.elements
+    props: {
+      projects: ssData.proyectos.elements,
+      categories: ssData.categorias.elements
+    }
   };
-};
+}
 
 export default Home
