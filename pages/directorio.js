@@ -33,6 +33,27 @@ function Directorio(props) {
         return selectedCategoryNames.includes(project.categoria)
     })
 
+    //Filter for the projects if they offer home delivery or not
+    const [deliveryFilter, setDeliveryFilter] = useState([
+        {
+            selected: true,
+            name: 'Sí',
+            id: 0
+        },
+        {
+            selected: true,
+            name: 'No',
+            id: 1
+        }
+    ]);
+
+    let selectedDelivery = deliveryFilter.filter(delivery => delivery.selected === true).map(delivery => delivery.name);
+    projects = projects.filter(project => {
+        return selectedDelivery.includes(project.servicio_a_domicilio) || project.servicio_a_domicilio === ""
+    })
+
+
+
     const numberOfListings = projects.length;
     const [pagination, setPagination] = useState(0);
     let numberOfPages = Math.ceil(numberOfListings / listingsPerPage);
@@ -55,7 +76,7 @@ function Directorio(props) {
                         <h2 className="text-4xl text-gray-900 leading-normal p-12 text-center">Directorio de proyectos</h2>
                     </div>
                     <TopSort numberOfListings={numberOfListings} />
-                    <DirectoryList projects={projects} categories={props.categories} pagination={pagination} setPagination={setPagination} numberOfPages={numberOfPages} categoryFilter={categoryFilter} setCategoryFilter={setCategoryFilter} />
+                    <DirectoryList projects={projects} categories={props.categories} pagination={pagination} setPagination={setPagination} numberOfPages={numberOfPages} categoryFilter={categoryFilter} setCategoryFilter={setCategoryFilter} deliveryFilter={deliveryFilter} setDeliveryFilter={setDeliveryFilter} />
                 </div>
             </main>
 
