@@ -13,15 +13,8 @@ const Tabletop = require('tabletop');
 function Directorio(props) {
     let { projects, categories } = props;
     const listingsPerPage = 12;
-    const numberOfListings = projects.length;
-    const [pagination, setPagination] = useState(0);
-    let numberOfPages = Math.ceil(numberOfListings / listingsPerPage);
 
-    let firstProject = ((pagination + 1) * listingsPerPage) - listingsPerPage;
-    let lastProject = (pagination + 1) * listingsPerPage - 1;
-
-    projects = projects.slice(firstProject, lastProject)
-
+    //Define the initial category and its states
     let categoriesInitialState = []
     categories.map(cat => {
         let category = {
@@ -32,8 +25,24 @@ function Directorio(props) {
         categoriesInitialState.push(category)
     })
 
+    //Filter the categories to show based in the category filter.
     const [categoryFilter, setCategoryFilter] = useState(categoriesInitialState);
-    console.log(categoryFilter)
+
+    let selectedCategoryNames = categoryFilter.filter(category => category.selected === true).map(category => category.name);
+    projects = projects.filter(project => {
+        return selectedCategoryNames.includes(project.categoria)
+    })
+
+    const numberOfListings = projects.length;
+    const [pagination, setPagination] = useState(0);
+    let numberOfPages = Math.ceil(numberOfListings / listingsPerPage);
+
+    //Divide the projects to display based on the pagination state
+    let firstProject = ((pagination + 1) * listingsPerPage) - listingsPerPage;
+    let lastProject = (pagination + 1) * listingsPerPage - 1;
+
+    projects = projects.slice(firstProject, lastProject)
+
     return (
         <Layout>
             <Head>

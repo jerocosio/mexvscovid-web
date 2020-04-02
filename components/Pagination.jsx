@@ -17,7 +17,7 @@ const Pagination = ({ numberOfPages, setPagination, pagination }) => {
                                 selected = "text-green-500"
                             }
                             return (
-                                <li>
+                                <li key={page}>
                                     <button onClick={() => { setPagination(page); window.scrollTo({ top: 0, behavior: 'smooth' }); }} className={`${selected} text-xs font-semibold flex w-8 h-8 mx-1 p-0 rounded-full items-center justify-center leading-tight relative border border-solid border-green-500 bg-white hover:bg-green-300 hover:text-white `}>
                                         {page + 1}
                                     </button>
