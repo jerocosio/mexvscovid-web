@@ -3,12 +3,11 @@ import ListItem from '../components/ListItem'
 import Filters from '../components/Filters'
 import Pagination from '../components/Pagination'
 
-const TopSort = ({ projects, categories }) => {
-
+const TopSort = ({ projects, categories, numberOfPages, pagination, setPagination, categoryFilter, setCategoryFilter }) => {
     return (
         <div className="container ">
             <div className="float-left  rounded-md bg-white shadow p-4 w-1/4">
-                <Filters categories={categories} />
+                <Filters categories={categories} categoryFilter={categoryFilter} setCategoryFilter={setCategoryFilter} />
             </div>
             <div className="flex flex-1 flex-col pl-4">
                 {
@@ -16,7 +15,7 @@ const TopSort = ({ projects, categories }) => {
                         < ListItem project={project} key={project.id} />
                     ))
                 }
-                <Pagination />
+                <Pagination numberOfPages={numberOfPages} setPagination={setPagination} pagination={pagination} />
             </div>
 
         </div>

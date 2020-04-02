@@ -7,7 +7,6 @@ const Pill = ({ category, subcategory }) => {
     } else if (category == 'Tiendas') {
         background = "bg-teal-500"
     }
-    console.log(background, category)
     return (
         <span className={`absolute rounded-full m-2 text-white uppercase px-2 py-1 text-xs font-bold mr-3 ${background}`}>{subcategory}</span>
     )
