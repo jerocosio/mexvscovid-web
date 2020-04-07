@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import ProjectResume from "./ProjectResume"
+import ProjectItem from "./ProjectItem"
 
 
 const LatestProjects = ({ projects }) => {
@@ -11,7 +11,7 @@ const LatestProjects = ({ projects }) => {
                 <div className="container flex">
                     {
                         latestProjects.map(project => (
-                            <ProjectResume key={project.id} project={project} />
+                            <ProjectItem key={project.id} project={project} />
                         ))
                     }
                 </div>

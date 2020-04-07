@@ -1,6 +1,10 @@
 module.exports = {
   theme: {
-    extend: {},
+    extend: {
+      inset: {
+        '-2': '-2rem',
+      },
+    },
     container: {
 
     },

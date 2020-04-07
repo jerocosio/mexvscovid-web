@@ -1,29 +1,42 @@
 import Link from 'next/link';
-import Pill from '../components/Pill'
+import Pill from './Pill';
+import ContactInfo from './ContactInfo';
 
 
-const ProjectResume = ({ project }) => {
+const ProjectItem = ({ project }) => {
     const projectUrl = "/proyecto/" + project.id;
     let ig_url = null;
     if (project.ig_link) {
         ig_url = 'https://www.instagram.com/' + project.ig_link.replace("@", "")
     }
     return (
-        <div className="max-w-sm rounded shadow-lg flex flex-1 m-6 flex-col overflow-hidden bg-white">
+        <div className="max-w-sm rounded shadow-lg flex flex-1 m-6 flex-col overflow-hidden bg-white justify-between">
             <div className="flex h-48 relative">
-                <img className="object-cover " src="images/dry-clean.png" />
+                <Link href={projectUrl}>
+                    <a className="flex">
+                        <img className="object-cover" src="/images/dry-clean.png" />
+                    </a>
+                </Link>
                 <div className="absolute">
                     <Pill category={project.categoria} subcategory={project.subcategoria} />
                 </div>
+                <div className="absolute bottom-0 right-0 -bottom-2 mr-3 ">
+                    <Link href={projectUrl}>
+                        <a className="shadow rounded-full w-20 h-20 bg-red-500 flex items-center justify-center">
+                            {project.logo ? (
+                                <div>
+                                    Algo
+                                </div>
+                            ) : (<p className="text-white font-bold text-3xl">TS</p>)}
+                        </a>
+                    </Link>
+                </div>
             </div>
-
-            <div className="flex p-4 flex-col ">
+            <div className="flex p-4 flex-col">
                 <Link href={projectUrl}>
                     <a><h4 className="text-2xl text-gray-700 font-bold mb-2 hover:underline">{project.nombre}</h4></a>
                 </Link>
-                {project.direccion ? <p className="text-gray-800 py-1"><span className="font-medium text-gray-800">📍 </span>{project.direccion}</p> : null}
-                {project.telefono ? <p><a href={`tel:${project.telefono}`} className="text-gray-800 hover:underline py-1"><span className="font-medium text-gray-800">☎️ (Tel): </span>{project.telefono}</a></p> : null}
-                {project.whatsapp ? <p><a href={`https://wa.me/${project.whatsapp.replace(" ", "").replace("+", "")}`} className="text-gray-800 hover:underline py-1"><span className="font-medium text-gray-800">☎️ (WhatsApp): </span>{project.whatsapp}</a></p> : null}
+                <ContactInfo project={project} />
             </div>
             <div className="flex p-4 border-t border-gray-300 flex-row justify-between">
                 <div className="flex">
@@ -51,4 +64,4 @@ const ProjectResume = ({ project }) => {
     )
 };
 
-export default ProjectResume;
+export default ProjectItem;

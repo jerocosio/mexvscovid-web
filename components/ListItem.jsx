@@ -1,5 +1,6 @@
 import Link from 'next/link';
-import Pill from '../components/Pill'
+import Pill from '../components/Pill';
+import ContactInfo from '../components/ContactInfo';
 
 const ListItem = ({ project }) => {
     const projectUrl = "/proyecto/" + project.id;
@@ -24,10 +25,7 @@ const ListItem = ({ project }) => {
                     <Link href={projectUrl}>
                         <a><h4 className="text-2xl text-gray-700 font-bold mb-2 hover:underline">{project.nombre}</h4></a>
                     </Link>
-                    {project.direccion ? <p className="text-gray-800 py-1"><span className="font-medium text-gray-800">📍 </span>{project.direccion}</p> : null}
-
-                    {project.telefono ? <p><a href={`tel:${project.telefono}`} className="text-gray-800 hover:underline py-1"><span className="font-medium text-gray-800">☎️ (Tel): </span>{project.telefono}</a></p> : null}
-                    {project.whatsapp ? <p><a href={`https://wa.me/${project.whatsapp.replace(" ", "").replace("+", "")}`} className="text-gray-800 hover:underline py-1"><span className="font-medium text-gray-800">☎️ (WhatsApp): </span>{project.whatsapp}</a></p> : null}
+                    <ContactInfo project={project} />
 
                     <p className="text-gray-800 py-1"><span className="font-medium text-gray-800">Servicio a domicilio: </span> {project.servicio_a_domicilio === 'Sí' ? ' ✅' : ' ⛔'}</p>
                     <p className="text-gray-800 py-1"><span className="font-medium text-gray-800">Zonas de envío: </span> {project.zonas_servicio_a_domicilio}</p>
