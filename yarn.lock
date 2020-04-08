@@ -5907,6 +5907,14 @@ tabletop@^1.6.2:
     lodash "^4.17.12"
     request "^2.51.0"
 
+tailwindcss-plugin-multiple-lines@^1.0.1:
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/tailwindcss-plugin-multiple-lines/-/tailwindcss-plugin-multiple-lines-1.0.1.tgz#2156de749b3acd6b1cf3b5206032527920b1ac4b"
+  integrity sha512-GuZAPg0a9a8Nhuvqr82W9VkUc55BoANJnj2CDiXHyyMBU2N/SPCfr+aaM1uzRhPpHBeDg6326gG8PqiOkadXKg==
+  dependencies:
+    lodash "^4.17.15"
+    postcss "^7.0.17"
+
 tailwindcss@^1.2.0:
   version "1.2.0"
   resolved "https://registry.yarnpkg.com/tailwindcss/-/tailwindcss-1.2.0.tgz#5df317cebac4f3131f275d258a39da1ba3a0f291"

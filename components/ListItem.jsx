@@ -27,9 +27,9 @@ const ListItem = ({ project }) => {
                     </Link>
                     <ContactInfo project={project} />
 
-                    <p className="text-gray-800 py-1"><span className="font-medium text-gray-800">Servicio a domicilio: </span> {project.servicio_a_domicilio === 'Sí' ? ' ✅' : ' ⛔'}</p>
+                    <p className="text-gray-800 py-1 "><span className="font-medium text-gray-800">Servicio a domicilio: </span> {project.servicio_a_domicilio === 'Sí' ? ' ✅' : ' ⛔'}</p>
                     <p className="text-gray-800 py-1"><span className="font-medium text-gray-800">Zonas de envío: </span> {project.zonas_servicio_a_domicilio}</p>
-                    <p className="text-gray-800 py-1"><span className="font-medium text-gray-800">Descripción: </span>{project.descripcion}</p>
+                    <p className="text-gray-800 py-1 box clamp-2 orient-vertical overflow-hidden"><span className="font-medium text-gray-800">Descripción: </span>{project.descripcion}</p>
                 </div>
                 <div className="flex p-4 border-t border-gray-300 flex-row justify-between ">
                     <div className="flex">

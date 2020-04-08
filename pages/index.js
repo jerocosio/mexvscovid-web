@@ -7,7 +7,6 @@ import Footer from '../components/Footer'
 
 const Tabletop = require('tabletop');
 
-
 function Home(props) {
   let { projects, categories } = props;
   return (
@@ -16,7 +15,6 @@ function Home(props) {
         <title>MEX VS COVID-19 - Apoya a empresas o proyectos mexicanos afectados por el COVID-19</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
-
       <main>
         <IndexHero categories={categories} />
         <LatestProjects projects={projects} />
@@ -28,13 +26,10 @@ function Home(props) {
           </div>
         </div>
         <StepsToAdd />
-
       </main>
-
       <footer>
         <Footer />
       </footer>
-
     </Layout>
   )
 }

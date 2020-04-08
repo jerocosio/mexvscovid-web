@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useRouter } from 'next/router'
 
 import Head from 'next/head'
 import Layout from '../components/Layout';
@@ -12,6 +13,8 @@ const Tabletop = require('tabletop');
 
 function Directorio(props) {
     let { projects, categories } = props;
+    const router = useRouter()
+    const { cat } = router.query
     const listingsPerPage = 12;
 
     //Define the initial category and its states
@@ -24,6 +27,24 @@ function Directorio(props) {
         }
         categoriesInitialState.push(category)
     })
+    //If there's a category selected, put the initial category state as only that one true and the rest false.
+    if (cat) {
+        categoriesInitialState = categoriesInitialState.map(initialCat => {
+            if (initialCat.name !== cat) {
+                return (
+                    {
+                        selected: !initialCat.selected,
+                        id: initialCat.id,
+                        name: initialCat.name
+                    }
+                )
+            } else {
+                return (
+                    initialCat
+                )
+            }
+        })
+    }
 
     //Filter the categories to show based in the category filter.
     const [categoryFilter, setCategoryFilter] = useState(categoriesInitialState);
