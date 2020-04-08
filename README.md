@@ -1,3 +1,5 @@
+This is a project developed for MEX VS COVID-19, an organization that's looking for new ways to help the small and medium businesses all around Mexico that had issues caused by the COVID-19 Pandemic get support and exposuree.
+
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/zeit/next.js/tree/canary/packages/create-next-app).
 
 ## Getting Started
