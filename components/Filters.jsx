@@ -24,7 +24,7 @@ const Filters = ({ categoryFilter, setCategoryFilter, setPagination, deliveryFil
                     categoryFilter.map((category, index) => (
                         <div className="mt-1" key={category.id}>
                             <label className="inline-flex items-center">
-                                <input type="checkbox" className="form-checkbox h-6 w-6" onChange={(e) => handleChange(e, category, index)} checked={category.selected} />
+                                <input type="checkbox" className="form-checkbox h-6 w-6 text-covid-300" onChange={(e) => handleChange(e, category, index)} checked={category.selected} />
                                 <span className="ml-3 text-lg">{category.name}</span>
                             </label>
                         </div>
@@ -37,7 +37,7 @@ const Filters = ({ categoryFilter, setCategoryFilter, setPagination, deliveryFil
                     deliveryFilter.map((delivery, index) => (
                         <div className="mt-1" key={delivery.id}>
                             <label className="inline-flex items-center">
-                                <input type="checkbox" className="form-checkbox h-6 w-6" onChange={(e) => handleDeliveryChange(e, delivery, index)} checked={delivery.selected} />
+                                <input type="checkbox" className="form-checkbox h-6 w-6 text-covid-300" onChange={(e) => handleDeliveryChange(e, delivery, index)} checked={delivery.selected} />
                                 <span className="ml-3 text-lg">{delivery.name}</span>
                             </label>
                         </div>

@@ -7,7 +7,7 @@ import Footer from '../../components/Footer'
 import ContactInfo from '../../components/ContactInfo';
 import ShadowBox from '../../components/ShadowBox'
 import SocialButtons from '../../components/SocialButtons'
-import LatestProjects from '../../components/LatestProjects'
+import RandomProjects from '../../components/RandomProjects'
 
 import { useRouter } from 'next/router'
 
@@ -35,7 +35,7 @@ const Proyecto = props => {
 
                     </div>
                 </div>
-                <div className="bg-gray-100">
+                <div className="bg-covid-100">
                     <div className="container mx-auto ">
                         <div className="flex flex-1 flex-wrap">
                             <ShadowBox width={'w-2/3'}>
@@ -66,7 +66,7 @@ const Proyecto = props => {
                                 </div>
                             </ShadowBox> : null}
                         </div>
-                        <LatestProjects projects={projects} />
+                        <RandomProjects projects={projects} />
                     </div>
                 </div>
             </main>

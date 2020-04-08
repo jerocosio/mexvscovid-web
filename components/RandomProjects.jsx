@@ -3,7 +3,7 @@ import ProjectItem from "./ProjectItem"
 
 
 const LatestProjects = ({ projects }) => {
-    let latestProjects = projects.slice(-3)
+    let latestProjects = projects.sort(() => 0.5 - Math.random()).slice(-3);
     return (
         <div className="bg-covid-100">
             <div className="container py-4 mx-auto">

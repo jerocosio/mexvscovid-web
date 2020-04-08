@@ -1,7 +1,7 @@
 import Head from 'next/head'
 import Layout from '../components/Layout';
 import IndexHero from '../components/IndexHero';
-import LatestProjects from '../components/LatestProjects';
+import RandomProjects from '../components/RandomProjects';
 import StepsToAdd from '../components/StepsToAdd';
 import Footer from '../components/Footer'
 
@@ -17,14 +17,7 @@ function Home(props) {
       </Head>
       <main>
         <IndexHero categories={categories} />
-        <LatestProjects projects={projects} />
-        <div className="bg-teal-400">
-          <div className="container py-16 mx-auto">
-            <h3 className="text-3xl text-white py-6 text-center ">¿Quieres colaborar?</h3>
-            <p className="px-16 text-white">Puedes...</p>
-            <p className="text-gray-600"></p>
-          </div>
-        </div>
+        <RandomProjects projects={projects} />
         <StepsToAdd />
       </main>
       <footer>
