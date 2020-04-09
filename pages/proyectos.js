@@ -94,7 +94,7 @@ function Directorio(props) {
             <main className="bg-covid-100">
                 <div className="container mx-auto ">
                     <div>
-                        <h2 className="text-4xl text-gray-900 leading-normal p-12 text-center">Directorio de proyectos</h2>
+                        <h2 className="text-2xl lg:text-3xl text-gray-900 leading-normal p-2 lg:p-10 text-center">Directorio de proyectos</h2>
                     </div>
                     <TopSort numberOfListings={numberOfListings} />
                     <DirectoryList projects={projects} categories={props.categories} pagination={pagination} setPagination={setPagination} numberOfPages={numberOfPages} categoryFilter={categoryFilter} setCategoryFilter={setCategoryFilter} deliveryFilter={deliveryFilter} setDeliveryFilter={setDeliveryFilter} />

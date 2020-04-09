@@ -1,7 +1,5 @@
 import { useState } from 'react';
-
 import Link from 'next/link';
-
 
 function Header() {
     const [menuOpen, setMenuOpen] = useState(false);

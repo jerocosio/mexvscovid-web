@@ -28,7 +28,7 @@ const Proyecto = props => {
             <main className="bg-white">
                 <div className="">
                     <div className="container mx-auto ">
-                        <div className="p-12">
+                        <div className="p-6 lg:p-12">
                             <h2 className="text-4xl text-gray-900 leading-normal ">{project.nombre}</h2>
                             <ContactInfo project={project} />
                         </div>
@@ -38,22 +38,22 @@ const Proyecto = props => {
                 <div className="bg-covid-100">
                     <div className="container mx-auto ">
                         <div className="flex flex-1 flex-wrap">
-                            <ShadowBox width={'w-2/3'}>
+                            <ShadowBox width={'lg:w-2/3'}>
                                 <img className="object-cover rounded" src="/images/dry-clean.png" />
                             </ShadowBox>
-                            <ShadowBox width={'w-1/3'}>
+                            <ShadowBox width={'lg:w-1/3'}>
                                 <div className="flex flex-col ">
                                     <ContactInfo project={project} />
                                     <SocialButtons project={project} />
                                 </div>
                             </ShadowBox>
-                            <ShadowBox width={'w-2/3'}>
+                            <ShadowBox width={'lg:w-2/3'}>
                                 <div className="flex flex-col ">
                                     <p className="font-bold text-lg text-gray-900">Descripción del proyecto:</p>
                                     <p className="text-gray-700 text-lg text-sm">{project.descripcion}</p>
                                 </div>
                             </ShadowBox>
-                            <ShadowBox width={'w-1/3'}>
+                            <ShadowBox width={'lg:w-1/3'}>
                                 <div className="flex flex-col">
                                     <p className="font-bold text-gray-900 text-lg">Servicio a domiclio: {project.servicio_a_domicilio === 'Sí' ? ' ✅' : ' ⛔'}</p>
                                     <p className="font-bold text-gray-900 text-lg">Zonas de envío: <span className="text-gray-700 font-normal">{project.zonas_servicio_a_domicilio}</span></p>

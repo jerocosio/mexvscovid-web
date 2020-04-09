@@ -1,7 +1,6 @@
 import Link from 'next/link';
 import ProjectItem from "./ProjectItem"
 
-
 const LatestProjects = ({ projects }) => {
     let latestProjects = projects.sort(() => 0.5 - Math.random()).slice(-3);
     return (
