@@ -15,7 +15,7 @@ const ProjectItem = ({ project }) => {
         <div className="max-w-sm rounded shadow-lg flex m-6 flex-col overflow-hidden bg-white justify-between">
             <div className="flex h-48 relative">
                 <Link href={projectUrl}>
-                    <a className="flex">
+                    <a className="flex w-full">
                         <img className="object-cover" src="/images/dry-clean.png" />
                     </a>
                 </Link>
