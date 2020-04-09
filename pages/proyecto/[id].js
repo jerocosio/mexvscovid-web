@@ -22,7 +22,7 @@ const Proyecto = props => {
     return (
         <Layout>
             <Head>
-                <title>MEX VS COVID-19 - Conoce más del proyecto</title>
+                <title>MEX VS COVID-19 - Apoya a {project.nombre} durante la epidemia del COVID-19</title>
                 <link rel="icon" href="/favicon.ico" />
             </Head>
             <main className="bg-white">

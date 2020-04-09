@@ -28,7 +28,7 @@ function ListItem({ project }) {
             <div className="flex flex-col justify-between w-full">
                 <div className="p-4">
                     <Link href={projectUrl}>
-                        <a><h4 className="text-2xl text-gray-700 font-bold mb-2 hover:underline">{project.nombre}</h4></a>
+                        <a><h4 className="text-2xl text-gray-700 font-bold mb-2 hover:underline font-serif">{project.nombre}</h4></a>
                     </Link>
                     <ContactInfo project={project} />
                     <p className="text-gray-800 py-1 "><span className="font-medium text-gray-800">Servicio a domicilio: </span> {project.servicio_a_domicilio === 'Sí' ? ' ✅' : ' ⛔'}</p>

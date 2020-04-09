@@ -12,7 +12,7 @@ function QuienesSomos(props) {
     return (
         <Layout>
             <Head>
-                <title>MEX VS COVID-19 - Apoya a empresas o proyectos mexicanos afectados por el COVID-19</title>
+                <title>MEX VS COVID-19 - Qué es y quiénes somos en este proyecto para apoyar a las empresas afectadas por el COVID-19</title>
                 <link rel="icon" href="/favicon.ico" />
             </Head>
             <main>

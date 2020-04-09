@@ -28,7 +28,7 @@ const ProjectItem = ({ project }) => {
             </div>
             <div className="flex p-4 flex-col">
                 <Link href={projectUrl}>
-                    <a><h4 className="text-2xl text-gray-700 font-bold mb-2 hover:underline">{project.nombre}</h4></a>
+                    <a><h4 className="text-2xl text-gray-700 font-bold mb-2 hover:underline font-serif">{project.nombre}</h4></a>
                 </Link>
                 <ContactInfo project={project} />
             </div>

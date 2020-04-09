@@ -1,5 +1,7 @@
 import { useState } from 'react';
 import Link from 'next/link';
+import ActiveLink from './ActiveLink'
+
 
 function Header() {
     const [menuOpen, setMenuOpen] = useState(false);
@@ -20,21 +22,21 @@ function Header() {
                 </div>
                 <div className={"transition duration-500 ease-in-out transform w-full block flex-grow lg:flex lg:items-center lg:w-auto" + (menuOpen ? " " : " hidden")}>
                     <div className="text-sm lg:flex-grow">
-                        <Link href="/">
-                            <a className="block text-lg mt-4 lg:inline-block lg:mt-0 text-covid-100 hover:text-covid-900 mr-4 font-serif">
+                        <ActiveLink activeClassName="underline" href="/">
+                            <a className="text-covid-100 block text-lg mt-4 lg:inline-block lg:mt-0  hover:text-covid-900 hover:underline mr-4 font-serif ">
                                 Inicio
       </a>
-                        </Link>
-                        <Link href="/proyectos">
-                            <a className="block text-lg mt-4 lg:inline-block lg:mt-0 text-covid-100 hover:text-covid-900 mr-4 font-serif">
+                        </ActiveLink>
+                        <ActiveLink activeClassName="underline" href="/proyectos">
+                            <a className="text-covid-100 block text-lg mt-4 lg:inline-block lg:mt-0 hover:text-covid-900 hover:underline mr-4 font-serif">
                                 Proyectos
       </a>
-                        </Link >
-                        <Link href="/quienes-somos">
-                            <a className="block text-lg mt-4 lg:inline-block lg:mt-0 text-covid-100 hover:text-covid-900 font-serif">
+                        </ActiveLink >
+                        <ActiveLink activeClassName="underline" href="/quienes-somos">
+                            <a className="text-covid-100 block text-lg mt-4 lg:inline-block lg:mt-0 hover:text-covid-900 hover:underline font-serif">
                                 ¿Quiénes somos?
       </a>
-                        </Link>
+                        </ActiveLink>
                     </div>
                     <div>
                         <a href="#" className="inline-block text-lg px-4 py-2 leading-none border rounded text-white border-white hover:border-transparent hover:text-covid-500 hover:bg-white mt-4 lg:mt-0 font-serif">+ Agregar mi proyecto</a>

@@ -88,7 +88,7 @@ function Directorio(props) {
     return (
         <Layout>
             <Head>
-                <title>MEX VS COVID-19 - Directorio</title>
+                <title>MEX VS COVID-19 - Conoce los proyectos que fueron afectados por el COVID-19 y cómo apoyarlos</title>
                 <link rel="icon" href="/favicon.ico" />
             </Head>
             <main className="bg-covid-100">
