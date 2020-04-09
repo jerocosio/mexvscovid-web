@@ -38,7 +38,7 @@ const Proyecto = props => {
                 <div className="bg-covid-100">
                     <div className="container mx-auto ">
                         <div className="flex flex-1 flex-wrap">
-                            <ShadowBox width={'lg:w-2/3 w-full'}>
+                            <ShadowBox width={'lg:w-2/3 w-full h-64 lg:h-auto'}>
                                 <img className="object-cover rounded" src="/images/dry-clean.png" />
                             </ShadowBox>
                             <ShadowBox width={'lg:w-1/3'}>

@@ -12,7 +12,7 @@ function ListItem({ project }) {
     }
     return (
         <div className="flex rounded-md bg-white shadow-md mb-6 overflow-hidden hover:shadow-lg flex-col lg:flex-row">
-            <div className="flex lg:w-4/12 relative">
+            <div className="flex lg:w-4/12 relative h-64 lg:h-auto">
                 <Link href={projectUrl}>
                     <a className="flex">
                         <img className="object-cover " src="images/dry-clean.png" />
