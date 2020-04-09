@@ -21,23 +21,23 @@ function Header() {
                 <div className={"transition duration-500 ease-in-out transform w-full block flex-grow lg:flex lg:items-center lg:w-auto" + (menuOpen ? " " : " hidden")}>
                     <div className="text-sm lg:flex-grow">
                         <Link href="/">
-                            <a className="block text-lg mt-4 lg:inline-block lg:mt-0 text-covid-100 hover:text-covid-900 mr-4">
+                            <a className="block text-lg mt-4 lg:inline-block lg:mt-0 text-covid-100 hover:text-covid-900 mr-4 font-serif">
                                 Inicio
       </a>
                         </Link>
                         <Link href="/proyectos">
-                            <a className="block text-lg mt-4 lg:inline-block lg:mt-0 text-covid-100 hover:text-covid-900 mr-4">
+                            <a className="block text-lg mt-4 lg:inline-block lg:mt-0 text-covid-100 hover:text-covid-900 mr-4 font-serif">
                                 Proyectos
       </a>
                         </Link >
                         <Link href="/quienes-somos">
-                            <a className="block text-lg mt-4 lg:inline-block lg:mt-0 text-covid-100 hover:text-covid-900">
+                            <a className="block text-lg mt-4 lg:inline-block lg:mt-0 text-covid-100 hover:text-covid-900 font-serif">
                                 ¿Quiénes somos?
       </a>
                         </Link>
                     </div>
                     <div>
-                        <a href="#" className="inline-block text-lg px-4 py-2 leading-none border rounded text-white border-white hover:border-transparent hover:text-covid-500 hover:bg-white mt-4 lg:mt-0">+ Agregar mi proyecto</a>
+                        <a href="#" className="inline-block text-lg px-4 py-2 leading-none border rounded text-white border-white hover:border-transparent hover:text-covid-500 hover:bg-white mt-4 lg:mt-0 font-serif">+ Agregar mi proyecto</a>
                     </div>
                 </div>
             </nav>

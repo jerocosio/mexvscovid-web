@@ -4,7 +4,7 @@ import Link from 'next/link';
 const StepsToAdd = ({ projects }) => (
     <div className="bg-white">
         <div className="container py-4 mx-auto">
-            <h3 className="text-2xl text-gray-800 p-3 lg:py-6 font-semibold">Argegar tu proyecto es muy fácil </h3>
+            <h3 className="text-2xl text-gray-800 p-3 lg:py-6 font-semibold font-serif">¿Quieres agregar tu proyecto?</h3>
             <div className="container flex justify-around flex-wrap">
                 <div className="flex lg:flex-1 flex-col justify-center items-center p-3">
                     <h4 className="text-xl font-medium text-gray-800 self-start ">Paso 1</h4>

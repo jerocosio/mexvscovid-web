@@ -1,0 +1,59 @@
+import Head from 'next/head'
+import Layout from '../components/Layout';
+import IndexHero from '../components/IndexHero';
+import RandomProjects from '../components/RandomProjects';
+import StepsToAdd from '../components/StepsToAdd';
+import Footer from '../components/Footer'
+
+const Tabletop = require('tabletop');
+
+function QuienesSomos(props) {
+    let { projects, categories } = props;
+    return (
+        <Layout>
+            <Head>
+                <title>MEX VS COVID-19 - Apoya a empresas o proyectos mexicanos afectados por el COVID-19</title>
+                <link rel="icon" href="/favicon.ico" />
+            </Head>
+            <main>
+                <div className="bg-covid-100 ">
+                    <div className="container py-4 mx-auto">
+                        <h3 className="text-2xl text-gray-800 px-8 font-semibold font-serif py-4 text-center">¿Quiénes somos?</h3>
+                        <p className="px-8 text-md text-gray-800 text-center py-4">Mexicanos contra Covid-19, es una plataforma a través de la cual brindamos ayuda a negocios mexicanos, trabajadores independientes y todo tipo de personas con actividad empresarial que están siendo afectadas por COVID-19. </p>
+                        <p className="px-8 text-md text-gray-800 text-center py-4">Buscamos, no solamente ayudar a dar promoción a estos negocios, pero canalizarlos con la ayuda necesaria para que puedan sostenerse durante el tiempo que dure el distanciamiento social así como en la etapa de la reactivación de su economía. Entendiendo que hay muchos mexicanos a los que les es imposible seguir la cuarentena, queremos apoyar a aquellos que se verán más afectados, y así minimizar los contagios de aquellos que no pueden permitirse quedarse en casa.</p>
+                        <p className="px-8 text-md text-gray-800 text-center py-4">La empatía es como un músculo que se debe trabajar y, partiendo de esto, queremos invitar a los mexicanos a ejercitarlo, haciendo que su consumo genere un impacto en aquellos negocios que se están viendo afectadas por la situación actual.</p>
+                        <p className="px-8 text-md text-gray-800 text-center py-4">Finalmente, invitamos a todos los grupos y personas que quieran sumarse y empatizar con nuestra causa a escribirnos y a ser parte de este movimiento.</p>
+
+                    </div>
+                </div>
+                <StepsToAdd />
+                <RandomProjects projects={projects} />
+            </main>
+            <footer>
+                <Footer />
+            </footer>
+        </Layout>
+    )
+}
+
+export async function getServerSideProps() {
+    const spreadSheetUrl = "https://docs.google.com/spreadsheets/d/1eXwDV5PGImTNXOPcfkXKlPADJezEuSotNk8EkrkO2c4/edit#gid=1749062419";
+    function getData() {
+        return new Promise(resolve => {
+            Tabletop.init({
+                key: spreadSheetUrl,
+                callback: data => resolve(data),
+                simpleSheet: false
+            });
+        });
+    }
+    const ssData = await getData();
+    return {
+        props: {
+            projects: ssData.proyectos.elements,
+            categories: ssData.categorias.elements
+        }
+    };
+}
+
+export default QuienesSomos

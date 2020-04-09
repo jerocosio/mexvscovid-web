@@ -29,7 +29,7 @@ const Proyecto = props => {
                 <div className="">
                     <div className="container mx-auto ">
                         <div className="p-6 lg:p-12">
-                            <h2 className="text-4xl text-gray-900 leading-normal ">{project.nombre}</h2>
+                            <h2 className="text-4xl text-gray-900 leading-normal font-serif">{project.nombre}</h2>
                             <ContactInfo project={project} />
                         </div>
 
@@ -38,8 +38,8 @@ const Proyecto = props => {
                 <div className="bg-covid-100">
                     <div className="container mx-auto ">
                         <div className="flex flex-1 flex-wrap">
-                            <ShadowBox width={'lg:w-2/3 w-full h-64 lg:h-auto'}>
-                                <img className="object-cover rounded" src="/images/dry-clean.png" />
+                            <ShadowBox width={'lg:w-2/3 w-full'}>
+                                <img className="object-cover rounded h-64 lg:h-auto" src="/images/dry-clean.png" />
                             </ShadowBox>
                             <ShadowBox width={'lg:w-1/3'}>
                                 <div className="flex flex-col ">

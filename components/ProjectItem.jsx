@@ -12,7 +12,7 @@ const ProjectItem = ({ project }) => {
         ig_url = 'https://www.instagram.com/' + project.ig_link.replace("@", "")
     }
     return (
-        <div className="max-w-sm rounded shadow-lg flex m-6 flex-col overflow-hidden bg-white justify-between">
+        <div className="max-w-sm rounded shadow-md hover:shadow-lg flex m-6 flex-col overflow-hidden bg-white justify-between">
             <div className="flex h-48 relative">
                 <Link href={projectUrl}>
                     <a className="flex w-full">
