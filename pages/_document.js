@@ -20,7 +20,6 @@ class MyDocument extends Document {
                     <meta name='msapplication-TileColor' content='#af694e' />
                     <meta name='msapplication-tap-highlight' content='no' />
                     <meta name='theme-color' content='#000000' />
-                    <meta name='viewport' content='minimum-scale=1, initial-scale=1, width=device-width, shrink-to-fit=no, user-scalable=no, viewport-fit=cover' />
 
                     <link rel='apple-touch-icon' sizes='180x180' href='/static/icons/icon-192x192.png' />
                     <link rel='icon' type='image/png' sizes='32x32' href='/favicon-32x32.png' />

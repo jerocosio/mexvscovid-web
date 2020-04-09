@@ -1,5 +1,7 @@
 import React from 'react'
 import App from 'next/app'
+import withGA from "next-ga";
+
 import '../css/tailwind.css'
 
 class MyApp extends App {
@@ -9,4 +11,6 @@ class MyApp extends App {
     }
 }
 
-export default MyApp
+export default withGA("UA-163246232-1", Router)(MyApp);
+
+
