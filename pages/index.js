@@ -13,6 +13,11 @@ function Home(props) {
     <Layout>
       <Head>
         <title>MEX VS COVID-19 - Apoya a empresas o proyectos mexicanos afectados por el COVID-19</title>
+        <meta
+          key="description"
+          name="description"
+          content="MEX vs COVID-19 es una plataforma para apoyar a diferentess negocios mexicanos que han sido afectados por la pandemia del COVID-19."
+        />
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main>

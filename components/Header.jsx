@@ -11,7 +11,7 @@ function Header() {
                 <div className="flex items-center flex-shrink-0 text-white mr-6">
                     <Link href="/">
                         <a>
-                            <img src="/images/logo.svg" className="h-6 lg:h-12"></img>
+                            <img src="/images/logo.svg" className="h-6 lg:h-12" alt="Logo Mex vs COVID-19"></img>
                         </a>
                     </Link>
                 </div>

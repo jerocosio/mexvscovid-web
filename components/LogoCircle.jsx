@@ -7,7 +7,7 @@ function LogoCircle({ project }) {
         <Link href={projectUrl}>
             <a className="shadow rounded-full w-20 h-20 bg-covid-400 flex items-center justify-center">
                 {project.logo ? (
-                    <img src={project.logo.replace("open?", "uc?")} />
+                    <img src={project.logo.replace("open?", "uc?")} alt={"Logo de " + project.nombre} />
                 ) : (<p className="text-covid-900 text-3xl font-serif">{getInitialsOrOption(project.nombre)}</p>)}
             </a>
         </Link>

@@ -23,6 +23,11 @@ const Proyecto = props => {
         <Layout>
             <Head>
                 <title>MEX VS COVID-19 - Apoya a {project.nombre} durante la epidemia del COVID-19</title>
+                <meta
+                    key="description"
+                    name="description"
+                    content={`Conoce toda la información de ${project.nombre} y apóyalos a través de Mex VS COVID-19. Una plataforma que ofrece ayuda para negocios afectados por la pandemia del COVID-19.`}
+                />
                 <link rel="icon" href="/favicon.ico" />
             </Head>
             <main className="bg-white">
@@ -39,7 +44,7 @@ const Proyecto = props => {
                     <div className="container mx-auto ">
                         <div className="flex flex-1 flex-wrap">
                             <ShadowBox width={'lg:w-2/3 w-full'}>
-                                <img className="object-cover rounded h-64 lg:h-auto" src="/images/dry-clean.jpg" />
+                                <img className="object-cover rounded h-64 lg:h-auto" src="/images/dry-clean.jpg" alt={project.nombre} />
                             </ShadowBox>
                             <ShadowBox width={'lg:w-1/3'}>
                                 <div className="flex flex-col ">
