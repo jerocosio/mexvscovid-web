@@ -15,7 +15,7 @@ function ListItem({ project }) {
             <div className="flex lg:w-4/12 relative h-64 lg:h-auto">
                 <Link href={projectUrl}>
                     <a className="flex">
-                        <img className="object-cover " src="images/dry-clean.png" />
+                        <img className="object-cover " src="images/dry-clean.jpg" />
                     </a>
                 </Link>
                 <div className="absolute top-0 left-0 m-2">

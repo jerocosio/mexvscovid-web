@@ -16,7 +16,7 @@ const ProjectItem = ({ project }) => {
             <div className="flex h-48 relative">
                 <Link href={projectUrl}>
                     <a className="flex w-full">
-                        <img className="object-cover" src="/images/dry-clean.png" />
+                        <img className="object-cover" src="/images/dry-clean.jpg" />
                     </a>
                 </Link>
                 <div className="absolute">
