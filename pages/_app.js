@@ -1,5 +1,6 @@
 import React from 'react'
 import App from 'next/app'
+import Router from "next/router";
 import withGA from "next-ga";
 
 import '../css/tailwind.css'
