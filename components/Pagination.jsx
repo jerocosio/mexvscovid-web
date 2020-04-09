@@ -18,7 +18,7 @@ const Pagination = ({ numberOfPages, setPagination, pagination }) => {
                             }
                             return (
                                 <li key={page}>
-                                    <button onClick={() => { setPagination(page); window.scrollTo({ top: 0, behavior: 'smooth' }); }} className={`${selected} text-xs font-semibold flex w-8 h-8 mx-1 p-0 rounded-full items-center justify-center leading-tight relative border border-solid border-covid-300 bg-white hover:bg-covid-400 hover:text-white `}>
+                                    <button aria-label="Siguiente Página" onClick={() => { setPagination(page); window.scrollTo({ top: 0, behavior: 'smooth' }); }} className={`${selected} text-xs font-semibold flex w-8 h-8 mx-1 p-0 rounded-full items-center justify-center leading-tight relative border border-solid border-covid-300 bg-white hover:bg-covid-400 hover:text-white `}>
                                         {page + 1}
                                     </button>
                                 </li>
