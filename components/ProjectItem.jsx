@@ -16,7 +16,9 @@ const ProjectItem = ({ project }) => {
             <div className="flex h-48 relative">
                 <Link href={projectUrl}>
                     <a className="flex w-full">
-                        <img className="object-cover" src="/images/dry-clean.jpg" alt={project.nombre} />
+                        {project.imagen ?
+                            <img className="object-cover " src={project.imagen.replace("open?", "uc?")} alt={"Imagen de " + project.nombre} /> :
+                            <img className="object-cover " src={`/images/sub-categories/${project.subcategoria.toLowerCase()}.jpg`} alt={"Imagen de " + project.nombre} />}
                     </a>
                 </Link>
                 <div className="absolute">

@@ -15,7 +15,9 @@ function ListItem({ project }) {
             <div className="flex lg:w-4/12 relative h-64 lg:h-auto">
                 <Link href={projectUrl}>
                     <a className="flex">
-                        <img className="object-cover " src="images/dry-clean.jpg" alt={"Imagen de " + project.nombre} />
+                        {project.imagen ?
+                            <img className="object-cover " src={project.imagen.replace("open?", "uc?")} alt={"Imagen de " + project.nombre} /> :
+                            <img className="object-cover " src={`/images/sub-categories/${project.subcategoria.toLowerCase()}.jpg`} alt={"Imagen de " + project.nombre} />}
                     </a>
                 </Link>
                 <div className="absolute top-0 left-0 m-2">

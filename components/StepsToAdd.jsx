@@ -9,19 +9,22 @@ const StepsToAdd = ({ projects }) => (
                 <div className="flex lg:flex-1 flex-col justify-center items-center p-3">
                     <h4 className="text-xl font-medium text-gray-800 self-start font-serif">Paso 1</h4>
                     <div><svg fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="1" viewBox="0 0 24 24" className="w-16 h-16"><path d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg></div>
-                    <p className="p-6 text-center text-gray-800">Junta la información básica de tu proyecto como nombre, Instagram, teléfono, descripción, logo, etc...</p>
+                    <p className="p-6 text-center text-gray-800">Junta la información de tu proyecto: nombre, descripción, logo (300x300), 1 imagen (800x450), tus redes sociales o forma de contactarlos (Instagram, Facebook, E-mail, teléfono)</p>
                 </div>
                 <div className="flex lg:flex-1 flex-col justify-center items-center p-3">
                     <h4 className="text-xl font-medium text-gray-800 self-start font-serif">Paso 2</h4>
-                    <div><svg fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="1" viewBox="0 0 24 24" className="w-16 h-16"><path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg></div>
-                    <p className="p-6 text-center text-gray-800">Mándanos un e-mail a <a>xxxx@xxxxxx.com</a> con toda tu información y cuéntanos el impacto que ha tenido tu proyecto a causa  del COVID-19.</p>
+                    <div><svg fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="1" viewBox="0 0 24 24" className="w-16 h-16"><path d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z"></path></svg></div>
+                    <p className="p-6 text-center text-gray-800">Cuéntanos un poco sobre las consecuencias que ha tenido tu negocio por la pandemia pero, sobre todo, qué impacto positivo directo tendrá tu negocio por cada compra (Ejemplo: poder pagar la nómina de algunos empleados, poder seguir pagando a tus proveedores...) </p>
                 </div>
                 <div className="flex lg:flex-1 flex-col justify-center items-center p-3">
                     <h4 className="text-xl font-medium text-gray-800 self-start font-serif">Paso 3</h4>
-                    <div><svg fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="1" viewBox="0 0 24 24" className="w-16 h-16"><path d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"></path></svg></div>
-                    <p className="p-6 text-center text-gray-800">¡Listo! Nuestro equipo revisará tu información para subirla en todas nuestras plataformas.</p>
+                    <div><svg fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="1" viewBox="0 0 24 24" className="w-16 h-16"><path d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg></div>
+                    <p className="p-6 text-center text-gray-800">¿Qué quisieras que los consumidores hagan por ti? (Ej: pedir comida a domicilio, usar tu servicio de mensajería o entregas, comprar tus servicios por adelantado, dejar más propina a los repartidores para dividirla con meseros).</p>
                 </div>
             </div>
+        </div>
+        <div>
+            <p className="text-center text-gray-800 p-6">Una vez que tengas toda la información envíala a <a className="font-semibold hover:underline" href="mailto:mexvscovid19@gmail.com">mexvscovid19@gmail.com</a> para que la publiquemos.</p>
         </div>
     </div>
 );

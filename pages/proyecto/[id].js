@@ -44,26 +44,29 @@ const Proyecto = props => {
                     <div className="container mx-auto ">
                         <div className="flex flex-1 flex-wrap">
                             <ShadowBox width={'lg:w-2/3 w-full'}>
-                                <img className="object-cover rounded h-64 lg:h-auto" src="/images/dry-clean.jpg" alt={project.nombre} />
+                                {project.imagen ?
+                                    <img className="object-cover rounded h-64 lg:h-auto" src={project.imagen.replace("open?", "uc?")} alt={"Imagen de " + project.nombre} /> :
+                                    <img className="object-cover rounded h-64 lg:h-auto" src={`/images/sub-categories/${project.subcategoria.toLowerCase()}.jpg`} alt={"Imagen de " + project.nombre} />}
                             </ShadowBox>
-                            <ShadowBox width={'lg:w-1/3'}>
+                            <ShadowBox width={'w-full lg:w-1/3'}>
                                 <div className="flex flex-col ">
                                     <ContactInfo project={project} />
                                     <SocialButtons project={project} />
                                 </div>
                             </ShadowBox>
-                            <ShadowBox width={'lg:w-2/3'}>
+                            <ShadowBox width={'lg:w-2/3 w-full'}>
                                 <div className="flex flex-col ">
                                     <p className="font-bold text-lg text-gray-900">Descripción del proyecto:</p>
                                     <p className="text-gray-700 text-lg text-sm">{project.descripcion}</p>
                                 </div>
                             </ShadowBox>
-                            <ShadowBox width={'lg:w-1/3'}>
-                                <div className="flex flex-col">
-                                    <p className="font-bold text-gray-900 text-lg">Servicio a domiclio: {project.servicio_a_domicilio === 'Sí' ? ' ✅' : ' ⛔'}</p>
-                                    <p className="font-bold text-gray-900 text-lg">Zonas de envío: <span className="text-gray-700 font-normal">{project.zonas_servicio_a_domicilio}</span></p>
-                                </div>
-                            </ShadowBox>
+                            {project.servicio_a_domicilio === 'Sí' ?
+                                <ShadowBox width={'lg:w-1/3 w-full'}>
+                                    <div className="flex flex-col">
+                                        <p className="font-bold text-gray-900 text-lg">Servicio a domiclio: {project.servicio_a_domicilio === 'Sí' ? ' ✅' : ' ⛔'}</p>
+                                        <p className="font-bold text-gray-900 text-lg">Zonas de envío: <span className="text-gray-700 font-normal">{project.zonas_servicio_a_domicilio}</span></p>
+                                    </div>
+                                </ShadowBox> : null}
                             {project.impacto_social ? <ShadowBox width={'w-full'}>
                                 <div className="flex flex-col ">
                                     <p className="font-bold text-lg text-gray-900">Impacto social:</p>
