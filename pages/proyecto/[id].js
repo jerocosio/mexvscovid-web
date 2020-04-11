@@ -33,12 +33,12 @@ const Proyecto = props => {
             <main className="bg-white">
                 <div className="">
                     <div className="container mx-auto ">
-                        <div className="flex p-6 lg:p-12 justify-between">
+                        <div className="flex p-6 lg:p-12 justify-between flex-col lg:flex-row">
                             <div>
                                 <h2 className="text-4xl text-gray-900 leading-normal font-serif">{project.nombre}</h2>
                                 <ContactInfo project={project} noClamp />
                             </div>
-                            <div className="p-8 invisible lg:visible">
+                            <div className="lg:p-8">
                                 <LogoCircle project={project} />
                             </div>
                         </div>
