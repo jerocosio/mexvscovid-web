@@ -20,11 +20,14 @@ function EventsList({ events }) {
                 <h2 className="text-2xl font-medium text-gray-800 self-start font-serif mb-2">Próximos eventos</h2>
                 <div className="flex flex-wrap">
                     {
+                        futureEvents.length > 0 ? (
 
-                        futureEvents.map(event => (
-                            < EventsListItem event={event} key={event.id} />
-                        ))
+                            futureEvents.map(event => (
+                                < EventsListItem event={event} key={event.id} />
+                            ))
+                        ) : <div className="w-full flex m-3 p-4 bg-covid-200 rounded"><p className="text-center text-gray-800">Por ahora no hay eventos futuros progamados.</p></div>
                     }
+
                 </div>
             </div>
             <div>

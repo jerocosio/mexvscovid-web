@@ -7,6 +7,7 @@ import ShadowBox from '../../components/ShadowBox'
 import SocialButtons from '../../components/SocialButtons'
 import RandomProjects from '../../components/RandomProjects'
 import ShareButtons from '../../components/ShareButtons'
+import LogoCircle from '../../components/LogoCircle';
 
 import { useRouter } from 'next/router'
 
@@ -32,9 +33,14 @@ const Proyecto = props => {
             <main className="bg-white">
                 <div className="">
                     <div className="container mx-auto ">
-                        <div className="p-6 lg:p-12">
-                            <h2 className="text-4xl text-gray-900 leading-normal font-serif">{project.nombre}</h2>
-                            <ContactInfo project={project} noClamp />
+                        <div className="flex p-6 lg:p-12 justify-between">
+                            <div>
+                                <h2 className="text-4xl text-gray-900 leading-normal font-serif">{project.nombre}</h2>
+                                <ContactInfo project={project} noClamp />
+                            </div>
+                            <div className="p-8 invisible lg:visible">
+                                <LogoCircle project={project} />
+                            </div>
                         </div>
 
                     </div>
