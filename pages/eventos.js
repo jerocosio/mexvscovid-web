@@ -1,14 +1,13 @@
 import Head from 'next/head'
 import Layout from '../components/Layout';
-import IndexHero from '../components/IndexHero';
-import RandomProjects from '../components/RandomProjects';
+import EventsList from '../components/EventsList';
 import StepsToAdd from '../components/StepsToAdd';
 import Footer from '../components/Footer'
 
 const Tabletop = require('tabletop');
 
 function Events(props) {
-    let { projects, categories } = props;
+    let { projects, events } = props;
     return (
         <Layout>
             <Head>
@@ -20,8 +19,14 @@ function Events(props) {
                 />
                 <link rel="icon" href="/favicon.ico" />
             </Head>
-            <main>
-                <p>Eventos hermano..</p>
+            <main className="bg-covid-100">
+                <div className="container mx-auto ">
+                    <div>
+                        <h2 className="text-2xl lg:text-3xl text-gray-900 leading-normal p-2 lg:p-10 text-center font-serif">Eventos en línea</h2>
+                        <p className="text-md font-serif px-4 pb-4 text-gray-800 text-center">Participa en nuestos eventos en línea para obtener ayuda legal, de negocios y de muchos otros temas para sacar adelante tu negocio.</p>
+                    </div>
+                    <EventsList events={events} projects={projects} />
+                </div>
                 <StepsToAdd />
             </main>
             <footer>
@@ -46,7 +51,7 @@ export async function getServerSideProps() {
     return {
         props: {
             projects: ssData.proyectos.elements,
-            categories: ssData.categorias.elements
+            events: ssData.eventos.elements
         }
     };
 }
