@@ -14,6 +14,11 @@ function ListItem({ project }) {
         <div className="flex rounded-md bg-white shadow-md mb-6 overflow-hidden hover:shadow-lg flex-col lg:flex-row">
             <div className="flex lg:w-4/12 relative h-64 lg:h-auto">
                 <Link href={projectUrl}>
+                    <a className="transition duration-300 ease-in-out transform w-full h-full bg-covid-300 absolute opacity-0 hover:opacity-50">
+
+                    </a>
+                </Link>
+                <Link href={projectUrl}>
                     <a className="flex">
                         {project.imagen ?
                             <img className="object-cover " src={project.imagen.replace("open?", "uc?")} alt={"Imagen de " + project.nombre} /> :

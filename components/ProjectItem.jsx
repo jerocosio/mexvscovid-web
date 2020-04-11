@@ -13,13 +13,18 @@ const ProjectItem = ({ project }) => {
     }
     return (
         <div className="max-w-sm rounded shadow-md hover:shadow-lg flex m-6 flex-col overflow-hidden bg-white justify-between">
-            <div className="flex h-48 relative">
+            <div className="flex h-48 relative ">
                 <Link href={projectUrl}>
-                    <a className="flex w-full">
+                    <a className="transition duration-300 ease-in-out transform w-full h-full bg-covid-300 absolute opacity-0 hover:opacity-50">
+
+                    </a>
+                </Link>
+                <Link href={projectUrl}>
+                    <div className="flex w-full">
                         {project.imagen ?
                             <img className="object-cover " src={project.imagen.replace("open?", "uc?")} alt={"Imagen de " + project.nombre} /> :
                             <img className="object-cover " src={`/images/sub-categories/${project.subcategoria.toLowerCase()}.jpg`} alt={"Imagen de " + project.nombre} />}
-                    </a>
+                    </div>
                 </Link>
                 <div className="absolute">
                     <Pill category={project.categoria} subcategory={project.subcategoria} />

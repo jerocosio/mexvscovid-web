@@ -32,6 +32,11 @@ function Header() {
                                 Proyectos
       </a>
                         </ActiveLink >
+                        <ActiveLink activeClassName="underline" href="/eventos">
+                            <a className="text-covid-100 block text-lg mt-4 lg:inline-block lg:mt-0 hover:text-covid-900 hover:underline mr-4 font-serif">
+                                Eventos/Live
+      </a>
+                        </ActiveLink >
                         <ActiveLink activeClassName="underline" href="/quienes-somos">
                             <a className="text-covid-100 block text-lg mt-4 lg:inline-block lg:mt-0 hover:text-covid-900 hover:underline font-serif">
                                 ¿Quiénes somos?

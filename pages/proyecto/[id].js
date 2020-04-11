@@ -1,13 +1,12 @@
 import Head from 'next/head'
 import Layout from '../../components/Layout';
-import TopSort from '../../components/TopSort'
-import DirectoryList from '../../components/DirectoryList'
 import StepsToAdd from '../../components/StepsToAdd';
 import Footer from '../../components/Footer'
 import ContactInfo from '../../components/ContactInfo';
 import ShadowBox from '../../components/ShadowBox'
 import SocialButtons from '../../components/SocialButtons'
 import RandomProjects from '../../components/RandomProjects'
+import ShareButtons from '../../components/ShareButtons'
 
 import { useRouter } from 'next/router'
 
@@ -35,7 +34,7 @@ const Proyecto = props => {
                     <div className="container mx-auto ">
                         <div className="p-6 lg:p-12">
                             <h2 className="text-4xl text-gray-900 leading-normal font-serif">{project.nombre}</h2>
-                            <ContactInfo project={project} />
+                            <ContactInfo project={project} noClamp />
                         </div>
 
                     </div>
@@ -48,12 +47,20 @@ const Proyecto = props => {
                                     <img className="object-cover rounded h-64 lg:h-auto" src={project.imagen.replace("open?", "uc?")} alt={"Imagen de " + project.nombre} /> :
                                     <img className="object-cover rounded h-64 lg:h-auto" src={`/images/sub-categories/${project.subcategoria.toLowerCase()}.jpg`} alt={"Imagen de " + project.nombre} />}
                             </ShadowBox>
-                            <ShadowBox width={'w-full lg:w-1/3'}>
-                                <div className="flex flex-col ">
-                                    <ContactInfo project={project} />
-                                    <SocialButtons project={project} />
-                                </div>
-                            </ShadowBox>
+                            <div className="w-full lg:w-1/3">
+                                <ShadowBox >
+                                    <div className="flex flex-col ">
+                                        <h4 className="text-xl font-medium text-gray-800 self-start font-serif mb-2">Datos de contacto</h4>
+                                        <ContactInfo project={project} noClamp />
+                                        <SocialButtons project={project} />
+                                    </div>
+                                </ShadowBox>
+                                <ShadowBox >
+                                    <div className="w-full">
+                                        <ShareButtons project={project} />
+                                    </div>
+                                </ShadowBox>
+                            </div>
                             <ShadowBox width={'lg:w-2/3 w-full'}>
                                 <div className="flex flex-col ">
                                     <p className="font-bold text-lg text-gray-900">Descripción del proyecto:</p>
@@ -77,6 +84,7 @@ const Proyecto = props => {
                         <RandomProjects projects={projects} />
                     </div>
                 </div>
+                <StepsToAdd />
             </main>
 
             <footer>
