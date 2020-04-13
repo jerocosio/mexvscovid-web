@@ -23,7 +23,7 @@ function Header() {
                 <div className={"transition duration-500 ease-in-out transform w-full block flex-grow lg:flex lg:items-center lg:w-auto" + (menuOpen ? " " : " hidden")}>
                     <div className="text-sm lg:flex-grow">
                         <ActiveLink activeClassName="underline" href="/">
-                            <a className="text-covid-100 block text-lg mt-4 lg:inline-block lg:mt-0  hover:text-covid-900 hover:underline mr-4 font-serif ">
+                            <a aria-label="Página de inicio" alt="Página de inicio" className="text-covid-100 block text-lg mt-4 lg:inline-block lg:mt-0  hover:text-covid-900 hover:underline mr-4 font-serif ">
                                 Inicio
       </a>
                         </ActiveLink>
@@ -44,7 +44,7 @@ function Header() {
                         </ActiveLink>
                     </div>
                     <div>
-                        <a href="mailto:mexvscovid19@gmail.com" className="inline-block text-lg px-4 py-2 leading-none border rounded text-white border-white hover:border-transparent hover:text-covid-500 hover:bg-white mt-4 lg:mt-0 font-serif">+ Agregar mi proyecto</a>
+                        <a href="mailto:mexvscovid19@gmail.com" className="inline-block text-lg px-4 py-2 leading-none border rounded text-white border-white hover:border-transparent hover:text-covid-500 hover:bg-white mt-4 lg:mt-0 font-serif">+ Agrega tu proyecto</a>
                     </div>
                 </div>
             </nav>

@@ -3,6 +3,11 @@ import { getInitialsOrOption } from '../helper-functions/strings';
 
 function LogoCircle({ project }) {
     const projectUrl = "/proyecto/" + project.id;
+    if (project.logo.includes('file')) {
+        const id = project.logo.split("/")[5]
+        const newUrl = `https://drive.google.com/uc?id=${id}`
+        project.logo = newUrl
+    }
     return (
         <Link href={projectUrl}>
             <a className="shadow rounded-full w-20 h-20 bg-covid-400 flex items-center justify-center">

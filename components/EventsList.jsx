@@ -1,4 +1,4 @@
-import EventsListItem from '../components/EventsListItem'
+import EventsItem from '../components/EventsItem'
 
 function EventsList({ events }) {
     let futureEvents = [];
@@ -7,7 +7,9 @@ function EventsList({ events }) {
     events.forEach(event => {
         const time = event.fecha + " " + event.hora
         event['time'] = new Date(time)
-        if (event.time > new Date()) {
+        let timePlusTwo = new Date(time)
+        timePlusTwo.setHours(timePlusTwo.getHours() + 2)
+        if (timePlusTwo > new Date()) {
             futureEvents.push(event)
         } else {
             pastEvents.push(event)
@@ -23,7 +25,7 @@ function EventsList({ events }) {
                         futureEvents.length > 0 ? (
 
                             futureEvents.map(event => (
-                                < EventsListItem event={event} key={event.id} />
+                                < EventsItem event={event} key={event.id} />
                             ))
                         ) : <div className="w-full flex m-3 p-4 bg-covid-200 rounded"><p className="text-center text-gray-800">Por ahora no hay eventos futuros progamados.</p></div>
                     }
@@ -35,7 +37,7 @@ function EventsList({ events }) {
                 <div className="flex flex-wrap">
                     {
                         pastEvents.map(event => (
-                            < EventsListItem event={event} key={event.id} />
+                            < EventsItem event={event} key={event.id} past />
                         ))
                     }
                 </div>

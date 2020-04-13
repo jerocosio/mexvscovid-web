@@ -11,6 +11,11 @@ const ProjectItem = ({ project }) => {
     if (project.ig_link) {
         ig_url = 'https://www.instagram.com/' + project.ig_link.replace("@", "")
     }
+    if (project.imagen.includes('file')) {
+        const id = project.logo.split("/")[5]
+        const newUrl = `https://drive.google.com/uc?id=${id}`
+        project.imagen = newUrl
+    }
     return (
         <div className="max-w-sm rounded shadow-md hover:shadow-lg flex m-6 flex-col overflow-hidden bg-white justify-between">
             <div className="flex h-48 relative ">

@@ -19,6 +19,11 @@ const Proyecto = props => {
     const { id } = router.query
     const projects = props.projects;
     const project = projects.find(project => project.id === id);
+    if (project.imagen.includes('file')) {
+        const id = project.logo.split("/")[5]
+        const newUrl = `https://drive.google.com/uc?id=${id}`
+        project.imagen = newUrl
+    }
     return (
         <Layout>
             <Head>
