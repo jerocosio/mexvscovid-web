@@ -11,7 +11,7 @@ function ListItem({ project }) {
         ig_url = 'https://www.instagram.com/' + project.ig_link.replace("@", "")
     }
     if (project.imagen.includes('file')) {
-        const id = project.logo.split("/")[5]
+        const id = project.imagen.split("/")[5]
         const newUrl = `https://drive.google.com/uc?id=${id}`
         project.imagen = newUrl
     }

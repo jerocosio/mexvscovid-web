@@ -20,7 +20,7 @@ const Proyecto = props => {
     const projects = props.projects;
     const project = projects.find(project => project.id === id);
     if (project.imagen.includes('file')) {
-        const id = project.logo.split("/")[5]
+        const id = project.imagen.split("/")[5]
         const newUrl = `https://drive.google.com/uc?id=${id}`
         project.imagen = newUrl
     }
