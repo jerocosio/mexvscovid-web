@@ -5,7 +5,6 @@ import Head from 'next/head'
 import Layout from '../components/Layout';
 import TopSort from '../components/TopSort'
 import DirectoryList from '../components/DirectoryList'
-import StepsToAdd from '../components/StepsToAdd';
 import Footer from '../components/Footer'
 
 
