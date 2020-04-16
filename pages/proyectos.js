@@ -72,15 +72,13 @@ function Directorio(props) {
         return selectedDelivery.includes(project.servicio_a_domicilio) || project.servicio_a_domicilio === ""
     })
 
-
-
     const numberOfListings = projects.length;
     const [pagination, setPagination] = useState(0);
     let numberOfPages = Math.ceil(numberOfListings / listingsPerPage);
 
     //Divide the projects to display based on the pagination state
-    let firstProject = ((pagination + 1) * listingsPerPage) - listingsPerPage;
-    let lastProject = (pagination + 1) * listingsPerPage - 1;
+    let firstProject = (((pagination + 1) * listingsPerPage) - listingsPerPage);
+    let lastProject = (pagination + 1) * listingsPerPage;
 
     projects = projects.slice(firstProject, lastProject)
 
