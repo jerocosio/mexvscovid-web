@@ -89,7 +89,7 @@ function Directorio(props) {
                 <meta
                     key="description"
                     name="description"
-                    content="Tods los proyectos de la plataforma MEX vs COVID-19 que buscan apoyar a diferentess negocios mexicanos que han sido afectados por la pandemia del COVID-19."
+                    content="Tods los proyectos de la plataforma MEX vs COVID-19 que buscan apoyar a diferentes negocios mexicanos que han sido afectados por la pandemia del COVID-19."
                 />
                 <link rel="icon" href="/favicon.ico" />
             </Head>

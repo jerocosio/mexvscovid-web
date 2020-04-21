@@ -29,7 +29,7 @@ class MyDocument extends Document {
 
                     <meta property='og:type' content='website' />
                     <meta property='og:title' content='MEX vs COVID-19' />
-                    <meta property='og:description' content='MEX vs COVID-19 es una plataforma para apoyar a diferentess negocios mexicanos que han sido afectados por la pandemia del COVID-19.' />
+                    <meta property='og:description' content='MEX vs COVID-19 es una plataforma para apoyar a diferentes negocios mexicanos que han sido afectados por la pandemia del COVID-19.' />
                     <meta property='og:site_name' content='MEX vs COVID-19' />
                     <meta property='og:url' content='https://mexvscovid19.com/' />
                 </Head>

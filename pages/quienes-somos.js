@@ -1,6 +1,5 @@
 import Head from 'next/head'
 import Layout from '../components/Layout';
-import IndexHero from '../components/IndexHero';
 import RandomProjects from '../components/RandomProjects';
 import StepsToAdd from '../components/StepsToAdd';
 import Footer from '../components/Footer'
@@ -16,7 +15,7 @@ function QuienesSomos(props) {
                 <meta
                     key="description"
                     name="description"
-                    content="MEX vs COVID-19 es una plataforma para apoyar a diferentess negocios mexicanos que han sido afectados por la pandemia del COVID-19."
+                    content="MEX vs COVID-19 es una plataforma para apoyar a diferentes negocios mexicanos que han sido afectados por la pandemia del COVID-19."
                 />
                 <link rel="icon" href="/favicon.ico" />
             </Head>
