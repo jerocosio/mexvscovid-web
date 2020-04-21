@@ -7,7 +7,7 @@ import Footer from '../components/Footer'
 const Tabletop = require('tabletop');
 
 function Events(props) {
-    let { projects, events } = props;
+    let { events } = props;
     return (
         <Layout>
             <Head>
@@ -25,7 +25,7 @@ function Events(props) {
                         <h2 className="text-2xl lg:text-3xl text-gray-900 leading-normal p-2 lg:p-10 text-center font-serif">Eventos en línea</h2>
                         <p className="text-md font-serif px-4 pb-4 text-gray-800 text-center">Participa en nuestos eventos en línea para obtener ayuda legal, de negocios y de muchos otros temas para sacar adelante tu negocio.</p>
                     </div>
-                    <EventsList events={events} projects={projects} />
+                    <EventsList events={events} />
                 </div>
                 <StepsToAdd />
             </main>
@@ -50,7 +50,6 @@ export async function getServerSideProps() {
     const ssData = await getData();
     return {
         props: {
-            projects: ssData.proyectos.elements,
             events: ssData.eventos.elements
         }
     };
