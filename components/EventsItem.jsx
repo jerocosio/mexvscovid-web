@@ -1,4 +1,4 @@
-import * as moment from 'moment';
+import moment from 'moment/min/moment-with-locales.min';
 moment.locale('es');
 
 function EventsItem({ event, past }) {
