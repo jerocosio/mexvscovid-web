@@ -3,7 +3,10 @@ moment.locale('es');
 
 function EventsItem({ event, past }) {
     const { titulo, imagen, presentado_por, time, link } = event;
-    console.log(past)
+    let buttonText = 'Unirme'
+    if (past) {
+        buttonText = 'Ver'
+    }
     return (
         <div className="p-4 lg:w-1/3">
             <div className="flex w-full bg-white rounded shadow-md hover:shadow-lg overflow-hidden">
@@ -19,9 +22,9 @@ function EventsItem({ event, past }) {
                     <p className="text-gray-900"><span className="text-sm font-semibold text-gray-700">Fecha:</span> {moment(time).format("dddd, D [de] MMMM [a las] LT")}</p>
                     <p className="text-gray-900"><span className="text-sm font-semibold text-gray-700">Por:</span> {presentado_por}</p>
                     {
-                        !past ? <a href={link} className="p-1 w-full border border-covid-500 rounded text-covid-500 text-center hover:bg-covid-500 hover:text-white">
-                            Unirme
-                    </a> : null
+                        link ? <a href={link} className="p-1 w-full border border-covid-500 rounded text-covid-500 text-center hover:bg-covid-500 hover:text-white">
+                            {buttonText}
+                        </a> : null
                     }
 
                 </div>

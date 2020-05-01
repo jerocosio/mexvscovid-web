@@ -4,8 +4,8 @@ function AdvisoryItem({ advisory }) {
         <div className="p-4 lg:w-1/3 ">
             <div className="rounded overflow-hidden shadow-md">
                 <div className=" bg-covid-200 p-4">
-                    <p className="text-gray-800 text-lg font-serif">{nombre}</p>
-                    <p className="text-gray-700 text-m">Sobre: {tipo}</p>
+                    <p className="text-gray-800 font-serif text-xl font-bold">{nombre}</p>
+                    <p className="text-gray-700 text-m">{tipo}</p>
                 </div>
                 <div className="bg-white p-4">
                     <p className="text-gray-800 text-sm">{en_que_consiste}</p>
