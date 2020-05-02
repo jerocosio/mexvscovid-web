@@ -12,7 +12,7 @@ function MoreInfo({ project }) {
             <div className="flex">
                 <Link href={projectUrl}>
                     <a aria-label="Ver más" className="transition duration-300 ease-in-out  border border-covid-500 hover:bg-covid-500 hover:text-white text-covid-500 font-bold py-2 px-4 rounded">
-                        Ver Más
+                        Ver Mais
                             </a>
                 </Link>
             </div>

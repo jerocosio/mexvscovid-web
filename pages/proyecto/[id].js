@@ -27,7 +27,7 @@ const Proyecto = props => {
     return (
         <Layout>
             <Head>
-                <title>MEX VS COVID-19 - Apoya a {project.nombre} durante la epidemia del COVID-19</title>
+                <title>MEX VS COVID-19 - Apoia o {project.nombre} durante a pandemia do COVID-19</title>
                 <meta
                     key="description"
                     name="description"

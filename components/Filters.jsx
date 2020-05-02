@@ -31,7 +31,7 @@ const Filters = ({ categoryFilter, setCategoryFilter, setPagination, deliveryFil
                     ))
                 }
             </div>
-            <h3 className="text-gray-700 mt-4">Servicio a domicilio</h3>
+            <h3 className="text-gray-700 mt-4">Delivery</h3>
             <div className="mt-2">
                 {
                     deliveryFilter.map((delivery, index) => (
