@@ -4,10 +4,16 @@ import RandomProjects from '../components/RandomProjects';
 import StepsToAdd from '../components/StepsToAdd';
 import Footer from '../components/Footer'
 
-const Tabletop = require('tabletop');
+import DataContext from '../components/DataContext';
+import { useContext } from 'react';
 
-function QuienesSomos(props) {
-    let { projects, categories } = props;
+function QuienesSomos() {
+    const { data } = useContext(DataContext);
+    let projects = [];
+
+    if (data && data.proyectos) {
+        projects = data.proyectos.elements;
+    }
     return (
         <Layout>
             <Head>

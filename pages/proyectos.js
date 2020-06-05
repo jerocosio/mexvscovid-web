@@ -7,11 +7,20 @@ import TopSort from '../components/TopSort'
 import DirectoryList from '../components/DirectoryList'
 import Footer from '../components/Footer'
 
+import DataContext from '../components/DataContext';
+import { useContext } from 'react';
 
-const Tabletop = require('tabletop');
+function Directorio() {
 
-function Directorio(props) {
-    let { projects, categories } = props;
+    const { data } = useContext(DataContext);
+    let projects = [];
+    let categories = [];
+
+    if (data && data.proyectos) {
+        projects = data.proyectos.elements;
+        categories = data.categorias.elements;
+    }
+
     const router = useRouter()
     const { cat } = router.query
     const listingsPerPage = 12;
@@ -99,7 +108,7 @@ function Directorio(props) {
                         <h2 className="text-2xl lg:text-3xl text-gray-900 leading-normal p-2 lg:p-10 text-center font-serif">Directorio de proyectos</h2>
                     </div>
                     <TopSort numberOfListings={numberOfListings} />
-                    <DirectoryList projects={projects} categories={props.categories} pagination={pagination} setPagination={setPagination} numberOfPages={numberOfPages} categoryFilter={categoryFilter} setCategoryFilter={setCategoryFilter} deliveryFilter={deliveryFilter} setDeliveryFilter={setDeliveryFilter} />
+                    <DirectoryList projects={projects} categories={categories} pagination={pagination} setPagination={setPagination} numberOfPages={numberOfPages} categoryFilter={categoryFilter} setCategoryFilter={setCategoryFilter} deliveryFilter={deliveryFilter} setDeliveryFilter={setDeliveryFilter} />
                 </div>
             </main>
 
@@ -110,26 +119,5 @@ function Directorio(props) {
         </Layout>
     )
 }
-
-export async function getServerSideProps() {
-    const spreadSheetUrl = "https://docs.google.com/spreadsheets/d/1eXwDV5PGImTNXOPcfkXKlPADJezEuSotNk8EkrkO2c4/edit#gid=1749062419";
-    function getData() {
-        return new Promise(resolve => {
-            Tabletop.init({
-                key: spreadSheetUrl,
-                callback: data => resolve(data),
-                simpleSheet: false
-            });
-        });
-    }
-    const ssData = await getData();
-    return {
-        props: {
-            projects: ssData.proyectos.elements,
-            categories: ssData.categorias.elements
-        }
-    };
-}
-
 
 export default Directorio

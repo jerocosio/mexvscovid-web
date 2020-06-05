@@ -4,10 +4,16 @@ import AdvisorsList from '../components/AdvisorsList';
 import StepsToAdd from '../components/StepsToAdd';
 import Footer from '../components/Footer'
 
-const Tabletop = require('tabletop');
+import DataContext from '../components/DataContext';
+import { useContext } from 'react';
 
-function Events(props) {
-    let { asesorias } = props;
+function Events() {
+    const { data } = useContext(DataContext);
+    let asesorias = [];
+
+    if (data && data.asesorias) {
+        asesorias = data.asesorias.elements;
+    }
     return (
         <Layout>
             <Head>
@@ -34,25 +40,6 @@ function Events(props) {
             </footer>
         </Layout>
     )
-}
-
-export async function getServerSideProps() {
-    const spreadSheetUrl = "https://docs.google.com/spreadsheets/d/1eXwDV5PGImTNXOPcfkXKlPADJezEuSotNk8EkrkO2c4/edit#gid=1749062419";
-    function getData() {
-        return new Promise(resolve => {
-            Tabletop.init({
-                key: spreadSheetUrl,
-                callback: data => resolve(data),
-                simpleSheet: false
-            });
-        });
-    }
-    const ssData = await getData();
-    return {
-        props: {
-            asesorias: ssData.asesorias.elements
-        }
-    };
 }
 
 export default Events
