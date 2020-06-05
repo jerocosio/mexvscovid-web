@@ -11,15 +11,20 @@ import LogoCircle from '../../components/LogoCircle';
 
 import { useRouter } from 'next/router'
 
+import DataContext from '../../components/DataContext';
+import { useContext } from 'react';
 
-const Tabletop = require('tabletop');
+const Proyecto = () => {
+    const { data } = useContext(DataContext);
+    let projects = [];
 
-const Proyecto = props => {
+    if (data && data.proyectos) {
+        projects = data.proyectos.elements;
+    }
     const router = useRouter()
     const { id } = router.query
-    const projects = props.projects;
     const project = projects.find(project => project.id === id);
-    if (project.imagen.includes('file')) {
+    if (project && project.imagen.includes('file')) {
         const id = project.imagen.split("/")[5]
         const newUrl = `https://drive.google.com/uc?id=${id}`
         project.imagen = newUrl
@@ -27,71 +32,79 @@ const Proyecto = props => {
     return (
         <Layout>
             <Head>
-                <title>MEX VS COVID-19 - Apoya a {project.nombre} durante la epidemia del COVID-19</title>
+                <title>MEX VS COVID-19 - Apoya a {project ? project.nombre : null} durante la epidemia del COVID-19</title>
                 <meta
                     key="description"
                     name="description"
-                    content={`Conoce toda la información de ${project.nombre} y apóyalos a través de Mex VS COVID-19. Una plataforma que ofrece ayuda para negocios afectados por la pandemia del COVID-19.`}
+                    content={`Conoce toda la información de ${project ? project.nombre : null} y apóyalos a través de Mex VS COVID-19. Una plataforma que ofrece ayuda para negocios afectados por la pandemia del COVID-19.`}
                 />
                 <link rel="icon" href="/favicon.ico" />
             </Head>
             <main className="bg-white">
                 <div className="">
                     <div className="container mx-auto ">
-                        <div className="flex p-6 lg:p-12 justify-between flex-col lg:flex-row">
-                            <div>
-                                <h2 className="text-4xl text-gray-900 leading-normal font-serif">{project.nombre}</h2>
-                                <ContactInfo project={project} noClamp />
-                            </div>
-                            <div className="lg:p-8">
-                                <LogoCircle project={project} />
-                            </div>
-                        </div>
-
+                        {
+                            project ?
+                                <div className="flex p-6 lg:p-12 justify-between flex-col lg:flex-row">
+                                    <div>
+                                        <h2 className="text-4xl text-gray-900 leading-normal font-serif">{project ? project.nombre : null}</h2>
+                                        <ContactInfo project={project} noClamp />
+                                    </div>
+                                    <div className="lg:p-8">
+                                        <LogoCircle project={project} />
+                                    </div>
+                                </div>
+                                :
+                                <p>Cargando...</p>
+                        }
                     </div>
                 </div>
                 <div className="bg-covid-100">
                     <div className="container mx-auto ">
-                        <div className="flex flex-1 flex-wrap">
-                            <ShadowBox width={'lg:w-2/3 w-full'}>
-                                {project.imagen ?
-                                    <img className="object-cover rounded h-64 lg:h-auto" src={project.imagen.replace("open?", "uc?")} alt={"Imagen de " + project.nombre} /> :
-                                    <img className="object-cover rounded h-64 lg:h-auto" src={`/images/sub-categories/${project.subcategoria.toLowerCase()}.jpg`} alt={"Imagen de " + project.nombre} />}
-                            </ShadowBox>
-                            <div className="w-full lg:w-1/3">
-                                <ShadowBox >
-                                    <div className="flex flex-col ">
-                                        <h4 className="text-xl font-medium text-gray-800 self-start font-serif mb-2">Datos de contacto</h4>
-                                        <ContactInfo project={project} noClamp />
-                                        <SocialButtons project={project} />
-                                    </div>
+                        {
+                            project ? <div className="flex flex-1 flex-wrap">
+                                <ShadowBox width={'lg:w-2/3 w-full'}>
+                                    {project.imagen ?
+                                        <img className="object-cover rounded h-64 lg:h-auto" src={project.imagen.replace("open?", "uc?")} alt={"Imagen de " + project.nombre} /> :
+                                        <img className="object-cover rounded h-64 lg:h-auto" src={`/images/sub-categories/${project.subcategoria.toLowerCase()}.jpg`} alt={"Imagen de " + project.nombre} />}
                                 </ShadowBox>
-                                <ShadowBox >
-                                    <div className="w-full">
-                                        <ShareButtons project={project} />
-                                    </div>
-                                </ShadowBox>
-                            </div>
-                            <ShadowBox width={'lg:w-2/3 w-full'}>
-                                <div className="flex flex-col ">
-                                    <p className="font-bold text-lg text-gray-900">Descripción del proyecto:</p>
-                                    <p className="text-gray-700 text-lg text-sm">{project.descripcion}</p>
+                                <div className="w-full lg:w-1/3">
+                                    <ShadowBox >
+                                        <div className="flex flex-col ">
+                                            <h4 className="text-xl font-medium text-gray-800 self-start font-serif mb-2">Datos de contacto</h4>
+                                            <ContactInfo project={project} noClamp />
+                                            <SocialButtons project={project} />
+                                        </div>
+                                    </ShadowBox>
+                                    <ShadowBox >
+                                        <div className="w-full">
+                                            <ShareButtons project={project} />
+                                        </div>
+                                    </ShadowBox>
                                 </div>
-                            </ShadowBox>
-                            {project.servicio_a_domicilio === 'Sí' ?
-                                <ShadowBox width={'lg:w-1/3 w-full'}>
-                                    <div className="flex flex-col">
-                                        <p className="font-bold text-gray-900 text-lg">Servicio a domiclio: {project.servicio_a_domicilio === 'Sí' ? ' ✅' : ' ⛔'}</p>
-                                        <p className="font-bold text-gray-900 text-lg">Zonas de envío: <span className="text-gray-700 font-normal">{project.zonas_servicio_a_domicilio}</span></p>
+                                <ShadowBox width={'lg:w-2/3 w-full'}>
+                                    <div className="flex flex-col ">
+                                        <p className="font-bold text-lg text-gray-900">Descripción del proyecto:</p>
+                                        <p className="text-gray-700 text-lg text-sm">{project.descripcion}</p>
+                                    </div>
+                                </ShadowBox>
+                                {project.servicio_a_domicilio === 'Sí' ?
+                                    <ShadowBox width={'lg:w-1/3 w-full'}>
+                                        <div className="flex flex-col">
+                                            <p className="font-bold text-gray-900 text-lg">Servicio a domiclio: {project.servicio_a_domicilio === 'Sí' ? ' ✅' : ' ⛔'}</p>
+                                            <p className="font-bold text-gray-900 text-lg">Zonas de envío: <span className="text-gray-700 font-normal">{project.zonas_servicio_a_domicilio}</span></p>
+                                        </div>
+                                    </ShadowBox> : null}
+                                {project.impacto_social ? <ShadowBox width={'w-full'}>
+                                    <div className="flex flex-col ">
+                                        <p className="font-bold text-lg text-gray-900">Impacto social:</p>
+                                        <p className="text-gray-700 text-lg text-sm">{project.impacto_social}</p>
                                     </div>
                                 </ShadowBox> : null}
-                            {project.impacto_social ? <ShadowBox width={'w-full'}>
-                                <div className="flex flex-col ">
-                                    <p className="font-bold text-lg text-gray-900">Impacto social:</p>
-                                    <p className="text-gray-700 text-lg text-sm">{project.impacto_social}</p>
-                                </div>
-                            </ShadowBox> : null}
-                        </div>
+                            </div>
+                                :
+                                <p>Cargando...</p>
+                        }
                         <RandomProjects projects={projects} />
                     </div>
                 </div>
@@ -101,29 +114,8 @@ const Proyecto = props => {
             <footer>
                 <Footer />
             </footer>
-
         </Layout >
     )
-}
-
-export async function getServerSideProps() {
-    const spreadSheetUrl = "https://docs.google.com/spreadsheets/d/1eXwDV5PGImTNXOPcfkXKlPADJezEuSotNk8EkrkO2c4/edit#gid=1749062419";
-    function getData() {
-        return new Promise(resolve => {
-            Tabletop.init({
-                key: spreadSheetUrl,
-                callback: data => resolve(data),
-                simpleSheet: false
-            });
-        });
-    }
-    const ssData = await getData();
-    return {
-        props: {
-            projects: ssData.proyectos.elements,
-            categories: ssData.categorias.elements
-        }
-    };
 }
 
 export default Proyecto

@@ -11,7 +11,6 @@ import DataContext from '../components/DataContext';
 import { useContext } from 'react';
 
 function Directorio() {
-
     const { data } = useContext(DataContext);
     let projects = [];
     let categories = [];
