@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useRouter } from 'next/router'
 
 import Head from 'next/head'
@@ -18,6 +18,7 @@ function Directorio() {
     if (data && data.projects) {
         projects = data.projects;
         categories = data.categories;
+        console.log(categories)
     }
 
     const router = useRouter()
@@ -53,8 +54,25 @@ function Directorio() {
         })
     }
 
+    console.log(categoriesInitialState)
+
     //Filter the categories to show based in the category filter.
     const [categoryFilter, setCategoryFilter] = useState(categoriesInitialState);
+
+    useEffect(() => {
+        let catsForFilter = []
+        categories.map(cat => {
+            let category = {
+                selected: true,
+                id: cat.id,
+                name: cat.nombre
+            }
+            catsForFilter.push(category)
+        })
+        setCategoryFilter(catsForFilter)
+    }, [data]);
+
+
 
     let selectedCategoryNames = categoryFilter.filter(category => category.selected === true).map(category => category.name);
     projects = projects.filter(project => {
@@ -107,7 +125,7 @@ function Directorio() {
                         <h2 className="text-2xl lg:text-3xl text-gray-900 leading-normal p-2 lg:p-10 text-center font-serif">Directorio de proyectos</h2>
                     </div>
                     <TopSort numberOfListings={numberOfListings} />
-                    <DirectoryList projects={projects} categories={categories} pagination={pagination} setPagination={setPagination} numberOfPages={numberOfPages} categoryFilter={categoryFilter} setCategoryFilter={setCategoryFilter} deliveryFilter={deliveryFilter} setDeliveryFilter={setDeliveryFilter} />
+                    <DirectoryList projects={projects.sort((a, b) => a.id - b.id)} categories={categories} pagination={pagination} setPagination={setPagination} numberOfPages={numberOfPages} categoryFilter={categoryFilter} setCategoryFilter={setCategoryFilter} deliveryFilter={deliveryFilter} setDeliveryFilter={setDeliveryFilter} />
                 </div>
             </main>
 

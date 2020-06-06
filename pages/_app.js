@@ -40,10 +40,10 @@ class MyApp extends App {
         )
             .then(
                 function (results) {
-                    console.log(results)
+                    let sortedProjects = [...results[0].data.sort((a, b) => a.id - b.id)]
                     that.setState({
                         data: {
-                            projects: results[0].data,
+                            projects: sortedProjects,
                             categories: results[1].data,
                             events: results[2].data,
                             assistance: results[3].data,

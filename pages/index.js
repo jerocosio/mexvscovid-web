@@ -14,6 +14,7 @@ function Home() {
   let categories = [];
 
   if (data && data.projects) {
+    console.log(data.projects)
     projects = data.projects;
     categories = data.categories;
   }
