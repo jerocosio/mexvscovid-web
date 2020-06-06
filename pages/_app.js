@@ -4,6 +4,7 @@ import Router from "next/router";
 import withGA from "next-ga";
 
 import DataContext from '../components/DataContext';
+import Papa from 'papaparse';
 
 import '../css/tailwind.css'
 
@@ -14,13 +15,17 @@ class MyApp extends App {
         data: [],
     };
     componentDidMount = () => {
+        const start = Date.now();
         var that = this;
         const spreadSheetUrl = "https://docs.google.com/spreadsheets/d/1eXwDV5PGImTNXOPcfkXKlPADJezEuSotNk8EkrkO2c4/edit#gid=1749062419";
         Tabletop.init({
             key: spreadSheetUrl,
             simpleSheet: false
         }
-        ).then(function (data, ) {
+        ).then(function (data) {
+            const end = Date.now();
+            const elapsed = end - start;
+            console.log(elapsed);
             that.setState({
                 data
             })
