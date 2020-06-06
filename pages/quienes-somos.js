@@ -11,8 +11,8 @@ function QuienesSomos() {
     const { data } = useContext(DataContext);
     let projects = [];
 
-    if (data && data.proyectos) {
-        projects = data.proyectos.elements;
+    if (data && data.projects) {
+        projects = data.projects;
     }
     return (
         <Layout>

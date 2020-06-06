@@ -13,9 +13,9 @@ function Home() {
   let projects = [];
   let categories = [];
 
-  if (data && data.proyectos) {
-    projects = data.proyectos.elements;
-    categories = data.categorias.elements;
+  if (data && data.projects) {
+    projects = data.projects;
+    categories = data.categories;
   }
 
   return (

@@ -8,28 +8,52 @@ import Papa from 'papaparse';
 
 import '../css/tailwind.css'
 
-const Tabletop = require('tabletop');
-
 class MyApp extends App {
     state = {
-        data: [],
+        data: {},
     };
     componentDidMount = () => {
-        const start = Date.now();
+        const sheetsUrls = [
+            'https://docs.google.com/spreadsheets/d/1eXwDV5PGImTNXOPcfkXKlPADJezEuSotNk8EkrkO2c4/pub?output=csv', //Proyectos
+            'https://docs.google.com/spreadsheets/d/1eXwDV5PGImTNXOPcfkXKlPADJezEuSotNk8EkrkO2c4/pub?output=csv&gid=1075638913', //Categorías
+            'https://docs.google.com/spreadsheets/d/1eXwDV5PGImTNXOPcfkXKlPADJezEuSotNk8EkrkO2c4/pub?output=csv&gid=1040079816', //Eventos
+            'https://docs.google.com/spreadsheets/d/1eXwDV5PGImTNXOPcfkXKlPADJezEuSotNk8EkrkO2c4/pub?output=csv&gid=1701026177', //Asesorías
+        ]
         var that = this;
-        const spreadSheetUrl = "https://docs.google.com/spreadsheets/d/1eXwDV5PGImTNXOPcfkXKlPADJezEuSotNk8EkrkO2c4/edit#gid=1749062419";
-        Tabletop.init({
-            key: spreadSheetUrl,
-            simpleSheet: false
-        }
-        ).then(function (data) {
-            const end = Date.now();
-            const elapsed = end - start;
-            console.log(elapsed);
-            that.setState({
-                data
-            })
-        })
+        Promise.all(
+            sheetsUrls
+                .map(
+                    url =>
+                        new Promise(
+                            (resolve, reject) =>
+                                Papa.parse(
+                                    url,
+                                    {
+                                        download: true,
+                                        header: true,
+                                        complete: resolve,//resolve the promise when complete
+                                        error: reject//reject the promise if there is an error
+                                    }
+                                )
+                        )
+                )
+        )
+            .then(
+                function (results) {
+                    console.log(results)
+                    that.setState({
+                        data: {
+                            projects: results[0].data,
+                            categories: results[1].data,
+                            events: results[2].data,
+                            assistance: results[3].data,
+                        }
+                    })
+                }
+            )
+            .catch(//log the error
+                err => console.warn("Something went wrong:", err)
+            )
     };
     render() {
         const { Component, pageProps } = this.props

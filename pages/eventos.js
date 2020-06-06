@@ -11,8 +11,8 @@ function Events() {
     const { data } = useContext(DataContext);
     let events = [];
 
-    if (data && data.eventos) {
-        events = data.eventos.elements;
+    if (data && data.events) {
+        events = data.events;
     }
     return (
         <Layout>

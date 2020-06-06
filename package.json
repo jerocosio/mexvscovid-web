@@ -20,8 +20,7 @@
     "postcss-import": "^12.0.1",
     "react": "16.13.1",
     "react-dom": "16.13.1",
-    "react-share": "^4.1.0",
-    "tabletop": "^1.6.2"
+    "react-share": "^4.1.0"
   },
   "devDependencies": {
     "@tailwindcss/custom-forms": "^0.2.1",
