@@ -13,7 +13,7 @@
     "@fullhuman/postcss-purgecss": "^2.1.0",
     "autoprefixer": "^9.7.5",
     "moment": "^2.29.4",
-    "next": "^9.4.4",
+    "next": "^13.1.5",
     "next-ga": "^2.3.4",
     "next-pwa": "^2.3.3",
     "papaparse": "^5.2.0",
